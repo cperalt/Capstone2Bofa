@@ -1,5 +1,5 @@
 import React from "react";
-import "@fortawesome/fontawesome-free/css/all.css"; // Ensure you have the correct path
+// import "@fortawesome/fontawesome-free/css/all.css"; // Ensure you have the correct path
 import "../Styles/Contact.css"; // Ensure you have a corresponding CSS file for styling
 import logoImage from "../Logos/Logo.png";
 
