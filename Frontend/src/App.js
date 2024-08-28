@@ -1,15 +1,31 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import VolunteerPage from './VolunteerPage';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
+import Home from "./Pages/HomePage";
+import About from "./Pages/AboutPage";
+import Volunteer from "./Pages/VolunterPage"; // Ensure this matches your actual file name
+import Donation from "./Pages/DonationPage";
+import Contact from "./Pages/ContactPage";
+import Menu from "./Components/Menu";
 
 function App() {
+  const [clicked, isClicked] = useState(false);
+
   return (
     <Router>
-      <div className="App">
+      <Navbar clicked={clicked} isClicked={isClicked} />
+      {clicked ? <Menu /> : null}
+      <main>
         <Routes>
-          <Route path="/" element={<VolunteerPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/donation" element={<Donation />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
-      </div>
+      </main>
+      <Footer />
     </Router>
   );
 }

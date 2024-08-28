@@ -1,0 +1,54 @@
+.Navbars {
+  background-color: #004658;
+  padding-bottom: 20px;
+  position: absolute;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+}
+@media screen and (min-width: 920px) {
+  .Navbars {
+    display: none;
+  }
+}
+.NavbarWrappers {
+  list-style-type: none;
+}
+
+.NavbarElement {
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover {
+  color: #e93a7d;
+  padding: 10px;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.active {
+  color: #e93a7d;
+}
+.linkbtn {
+  text-decoration: none;
+  color: white;
+  background-color: #027b9a;
+  padding: 10px;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.linkbtn:hover {
+  background-color: #004f62;
+}
+
+.Navbutton {
+  margin-top: 50px;
+  text-align: center;
+  padding: 10px;
+}

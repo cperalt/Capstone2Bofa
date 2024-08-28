@@ -1,0 +1,93 @@
+import React from "react";
+import "@fortawesome/fontawesome-free/css/all.css"; // Ensure you have the correct path
+import "../Styles/Contact.css"; // Ensure you have a corresponding CSS file for styling
+import logoImage from "../Logos/Logo.png";
+
+const ContactForm = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents the default form submission
+
+    const form = event.target;
+    if (form.checkValidity()) {
+      console.log("Form submitted successfully");
+    } else {
+      console.log("Form validation failed");
+    }
+  };
+
+  return (
+    <div className="container">
+      <div className="left-form">
+        <h3 className="heading">Get In Touch With Us!</h3>
+        <p className="text">How Can We Help?</p>
+        <form action="#" onSubmit={handleSubmit}>
+          <div className="inputform">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="name"
+              placeholder="Enter Your Name"
+              required
+              pattern="[A-Za-z\s]+"
+              title="Name should only contain letters and spaces"
+            />
+          </div>
+          <div className="inputform">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="email"
+              placeholder="Enter Your Email"
+              required
+            />
+          </div>
+          <div className="inputform">
+            <textarea
+              id="message"
+              className="message"
+              name="message"
+              placeholder="Enter Your Message..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className="btn">
+            Submit
+          </button>
+        </form>
+      </div>
+      <div className="right-form">
+        <div className="visual">
+          <img src={logoImage} alt="form picture" />
+        </div>
+        <div className="contact-info">
+          <div className="info-box">
+            <div className="text">
+              <p>We Are Here For You!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="form-icons">
+        <a className="book" href="https://www.facebook.com">
+          <i className="fa-brands fa-facebook-f"></i>
+        </a>
+        <a className="twit" href="https://twitter.com">
+          <i className="fa-brands fa-twitter"></i>
+        </a>
+        <a className="gram" href="https://www.instagram.com">
+          <i className="fa-brands fa-instagram"></i>
+        </a>
+        <a className="git" href="https://github.com">
+          <i className="fa-brands fa-github"></i>
+        </a>
+        <a className="linked" href="https://www.linkedin.com">
+          <i className="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  );
+};
+
+export default ContactForm;
