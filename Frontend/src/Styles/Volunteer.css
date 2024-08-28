@@ -1,0 +1,18 @@
+.volunteer-page {
+  padding: 4rem 0;
+  background-color: #e3f2fd;
+}
+
+.volunteer-page__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #1e88e5;
+}
+
+.volunteer-page__description {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #333;
+  line-height: 1.6;
+}
