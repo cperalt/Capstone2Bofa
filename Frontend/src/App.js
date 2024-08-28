@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Home from "./Pages/HomePage";
 import About from "./Pages/AboutPage";
-import Volunteer from "./Pages/VolunterPage"; // Ensure this matches your actual file name
+import Volunteer from "./Pages/VolunteerPage"; 
 import Donation from "./Pages/DonationPage";
 import Contact from "./Pages/ContactPage";
 import Menu from "./Components/Menu";
