@@ -35,11 +35,6 @@ function Navbar({ clicked, isClicked }) {
           </NavLink>
         </li>
         <li className="NavElements">
-          <NavLink className="Link" to="/about">
-            About
-          </NavLink>
-        </li>
-        <li className="NavElements">
           <NavLink className="Link" to="/contact">
             Contact
           </NavLink>
