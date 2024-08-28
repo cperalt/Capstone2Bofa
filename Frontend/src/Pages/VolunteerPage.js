@@ -1,6 +1,6 @@
 import React from 'react';
-import './VolunteerPage.css'; 
-import volunteerMatchImage from './volunimg2.png';
+import '../Styles/Volunteer.css'; 
+import volunteerMatchImage from '../volunimg2.png';
 
 const VolunteerPage = () => {
   return (
