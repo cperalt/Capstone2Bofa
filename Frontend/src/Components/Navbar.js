@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <img
-        src="https://www.freeiconspng.com/uploads/volunteer-icon-10.png"
+        src="https://www.freeiconspng.com/thumbs/volunteer-icon/volunteer-icon-10.png"
         width="150"
         alt="a logo"
       />
@@ -24,10 +24,10 @@ const Navbar = () => {
             <a href="/contact">Contact</a>
           </li>
           <li className="nav-item register">
-            <a href="/register">Register</a>
+            <a href="/Register">Register</a>
           </li>
           <li className="nav-item sign-in">
-            <a href="/sign-in">Sign In</a>
+            <a href="/Login">Sign In</a>
           </li>
         </ul>
       </div>

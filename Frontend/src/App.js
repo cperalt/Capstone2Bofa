@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Home from "./Pages/HomePage";
-import Volunteer from "./Pages/VolunterPage";
+
+import Volunteer from "./Pages/VolunteerPage";
 import Donation from "./Pages/DonationPage";
+import Register from "./Pages/Register"; //file path is correct
+import Login from "./Pages/Login";
 import Contact from "./Pages/ContactPage";
 import MobileNavbar from "../src/Components/MobileNavbar";
 
@@ -21,6 +24,8 @@ function App() {
           <Route path="/volunter" element={<Volunteer />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </main>
       <Footer />
