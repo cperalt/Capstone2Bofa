@@ -5,7 +5,6 @@
 }
 
 .hero {
-  /* background-image: url('volunhero.png');  */
   background-size: cover;
   background-position: center;
   padding: 60px;
@@ -24,6 +23,12 @@ h2 {
 
 .categories, .featured-opportunities, .user-impact {
   margin-top: 40px;
+  padding-top: 7%;
+}
+
+.categories h2 {
+  font-size: 35px;
+  font-weight: bold;
 }
 
 .category-cards, .opportunity-list {
@@ -43,6 +48,11 @@ h2 {
 
 .card h3, .opportunity-item h3 {
   margin-bottom: 10px;
+}
+
+.card p {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .view-details {
@@ -72,7 +82,7 @@ h2 {
 .volunteer-match-image img {
   width: 100%;
   height: auto;
-  border-radius: 50%;
+  border-radius: 1%;
 }
 
 .volunteer-match-text {
@@ -80,11 +90,86 @@ h2 {
 }
 
 .volunteer-match-text h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 20px;
-  text-align: left;
+  text-align: center;
+  color: #024388;
 }
 
 .volunteer-match-text p {
   margin-bottom: 15px;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.card h3 {
+  padding-top: 2%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card img {
+  height: 125px;
+  width: 125px;
+  margin-left: 37%;
+}
+
+.three-steps {
+  padding-top: 5%;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.three-steps h2 {
+  font-size: 50px;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-number {
+  font-size: 58px;
+  font-weight: bold;
+  color: #F5A623;
+  margin-bottom: 10px;
+}
+
+.step-description {
+  text-align: center;
+}
+
+.step-arrow {
+  font-size: 44px;
+  margin: 0 20px;
+  color: #ababab;
+}
+
+.step-result {
+  margin-left: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.step p, .step-result p {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 20px;
+}
+
+.step-result p{
+  font-size: 30px;
 }
