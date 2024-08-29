@@ -1,18 +1,90 @@
+
 .volunteer-page {
-  padding: 4rem 0;
-  background-color: #e3f2fd;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
 }
 
-.volunteer-page__title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.hero {
+  /* background-image: url('volunhero.png');  */
+  background-size: cover;
+  background-position: center;
+  padding: 60px;
   text-align: center;
-  color: #1e88e5;
+  color: white;
 }
 
-.volunteer-page__description {
-  font-size: 1.2rem;
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
   text-align: center;
-  color: #333;
-  line-height: 1.6;
+}
+
+.categories, .featured-opportunities, .user-impact {
+  margin-top: 40px;
+}
+
+.category-cards, .opportunity-list {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.card, .opportunity-item {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+}
+
+.card h3, .opportunity-item h3 {
+  margin-bottom: 10px;
+}
+
+.view-details {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* New styles for VolunteerMatch section */
+.volunteer-match {
+  margin-top: 40px;
+}
+
+.volunteer-match-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.volunteer-match-image {
+  flex: 1;
+}
+
+.volunteer-match-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.volunteer-match-text {
+  flex: 1;
+}
+
+.volunteer-match-text h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.volunteer-match-text p {
+  margin-bottom: 15px;
 }

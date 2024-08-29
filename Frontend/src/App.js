@@ -6,6 +6,11 @@ import Home from "./Pages/HomePage";
 import About from "./Pages/AboutPage";
 import Volunteer from "./Pages/VolunterPage"; // Ensure this matches your actual file name
 import Donation from "./Pages/DonationPage";
+<<<<<<< HEAD
+=======
+import Register from "./Pages/Register"; //file path is correct
+import Login from './Pages/Login';
+>>>>>>> 5877aca3f1ab19f977c4e1ccbe8f0570528d1ff3
 import Contact from "./Pages/ContactPage";
 import Menu from "./Components/Menu";
 
@@ -23,6 +28,8 @@ function App() {
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Login" element={<Login/>} />
         </Routes>
       </main>
       <Footer />

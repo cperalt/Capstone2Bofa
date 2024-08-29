@@ -35,17 +35,12 @@ function Navbar({ clicked, isClicked }) {
           </NavLink>
         </li>
         <li className="NavElements">
-          <NavLink className="Link" to="/about">
-            About
-          </NavLink>
-        </li>
-        <li className="NavElements">
           <NavLink className="Link" to="/contact">
             Contact
           </NavLink>
         </li>
         <li className="NavButton">
-          <NavLink className="Link" to="/sign-up">
+          <NavLink className="Link" to="/Register">
             Sign Up
           </NavLink>
         </li>
@@ -53,7 +48,7 @@ function Navbar({ clicked, isClicked }) {
           className="NavElements"
           style={{ float: "right", margin: "-8px 2px 1px 2px" }}
         >
-          <NavLink className="Link" to="/sign-in">
+          <NavLink className="Link" to="/Login">
             Sign In
           </NavLink>
         </li>
