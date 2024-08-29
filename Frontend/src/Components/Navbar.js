@@ -1,65 +1,38 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { ImCross } from "react-icons/im";
-import { GiHamburgerMenu } from "react-icons/gi";
 import "../Styles/Navbar.css";
-import Menu from "./Menu";
 
-function Navbar({ clicked, isClicked }) {
-  const handleClicked = () => {
-    isClicked(!clicked);
-    console.log("clicked");
-  };
-
+const Navbar = () => {
   return (
-    <div className="Nav">
-      <ul className="NavbarWrapper">
-        <li className="NavLogo">
-          <Link style={{ textDecoration: "none", color: "white" }} to="/">
-            HOH
-          </Link>
-        </li>
-        <li className="NavElements">
-          <NavLink className="Link" to="/" exact>
-            Home
-          </NavLink>
-        </li>
-        <li className="NavElements">
-          <NavLink className="Link" to="/volunteer">
-            Volunteer
-          </NavLink>
-        </li>
-        <li className="NavElements">
-          <NavLink className="Link" to="/donation">
-            Donation
-          </NavLink>
-        </li>
-        <li className="NavElements">
-          <NavLink className="Link" to="/contact">
-            Contact
-          </NavLink>
-        </li>
-        <li className="NavButton">
-          <NavLink className="Link" to="/Register">
-            Sign Up
-          </NavLink>
-        </li>
-        <li
-          className="NavElements"
-          style={{ float: "right", margin: "-8px 2px 1px 2px" }}
-        >
-          <NavLink className="Link" to="/Login">
-            Sign In
-          </NavLink>
-        </li>
-      </ul>
-      {!clicked ? (
-        <GiHamburgerMenu onClick={handleClicked} className="Icon" />
-      ) : (
-        <ImCross onClick={handleClicked} className="Icon" />
-      )}
-    </div>
+    <nav className="navbar">
+      <img
+        src="https://www.freeiconspng.com/thumbs/volunteer-icon/volunteer-icon-10.png"
+        width="150"
+        alt="a logo"
+      />
+      <div>
+        <ul className="menu_list">
+          <li className="nav-item home">
+            <a href="/">Home</a>
+          </li>
+          <li className="nav-item work">
+            <a href="/volunteer">Volunteer</a>
+          </li>
+          <li className="nav-item services">
+            <a href="/donation">Donation</a>
+          </li>
+          <li className="nav-item services">
+            <a href="/contact">Contact</a>
+          </li>
+          <li className="nav-item register">
+            <a href="/Register">Register</a>
+          </li>
+          <li className="nav-item sign-in">
+            <a href="/Login">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
-}
+};
 
 export default Navbar;
