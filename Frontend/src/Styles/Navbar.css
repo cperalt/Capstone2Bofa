@@ -1,81 +1,142 @@
-.Nav {
-  justify-content: center;
-  text-align: center;
-  background-color: #004658;
-  padding: 30px 170px 30px 170px;
-}
-.NavbarWrapper {
+ul {
   list-style-type: none;
-  margin: 0;
   padding: 0;
-  justify-content: center;
-}
-.NavLogo {
-  float: left;
-  font-size: 25px;
-  font-weight: 900;
-  margin: -8px 2px 1px 15px;
-  transition: 0.2s ease-in;
-}
-.NavElements {
-  display: inline;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  font-weight: 200;
-  padding: 10px 20px 10px 3px;
 }
 
-.NavButton {
-  float: right;
-  background-color: #027b9a;
-  border-radius: 20px;
-  padding: 10px 20px 10px 20px;
-  margin: -8px 2px 1px 2px;
+ul li {
+  padding: 15px;
 }
-.NavButton:hover {
-  background-color: #03576d;
-  cursor: pointer;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.05);
 }
-.Link {
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(11, 11, 11);
+  text-transform: uppercase;
+}
+
+.menu_list {
+  display: flex;
+}
+
+.nav-item {
+  padding: 15px;
+}
+
+.nav-item a {
   text-decoration: none;
-  color: white;
+  color: rgb(11, 11, 11);
+  position: relative;
 }
-.Link:hover {
-  cursor: pointer;
-  color: #ffffff;
-  border-radius: 20px;
-  transition: 0.5ms;
+
+.nav-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: rgb(11, 11, 11);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
-.active {
-  cursor: pointer;
-  color: #101010;
-  border-radius: 20px;
-  transition: 0.5ms;
+
+.nav-item a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
-.Icon {
+
+.nav-item.sign-in a {
+  background-color: #539ed0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 25px;
+}
+
+.nav-item.sign-in a:hover {
+  transform: scale(1.05);
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.mobile-navbar {
   display: none;
-  font-size: 25px;
-  cursor: pointer;
-  color: white;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it's on top of other content */
 }
-@media screen and (max-width: 919px) {
-  .Nav {
-    padding: 25px 0px 25px 20px;
-  }
-  .NavElements {
+
+.mobile-navbar-logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(11, 11, 11);
+  text-transform: uppercase;
+}
+
+.mobile-navbar-menu-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1001; /* Ensure it's on top of the menu */
+}
+
+.mobile-navbar-menu-container {
+  position: relative;
+}
+
+.mobile-navbar-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  background: dodgerblue;
+  border-radius: 4px;
+  color: white;
+  transition: ease all 0.4s;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.mobile-navbar-menu-open {
+  top: 10px;
+}
+
+.mobile-navbar-menu-closed {
+  top: -600px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+@media only screen and (max-width: 658px) {
+  .navbar {
     display: none;
   }
-  .NavButton {
+
+  .mobile-navbar {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .mobile-navbar img:first-of-type {
     display: none;
-  }
-  .Icon {
-    display: inline;
-    position: relative;
-    left: 35%;
-  }
-  .NavLogo {
-    margin: 0;
-    transition: 0.2s ease-in-out;
   }
 }

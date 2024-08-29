@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/Volunteer.css"; // Import the CSS file for VolunteerPage
+import "../Styles/Volunteer.css";
 
 const VolunterPage = () => {
   return (

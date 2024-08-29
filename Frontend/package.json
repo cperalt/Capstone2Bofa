@@ -10,13 +10,11 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.41",
-=======
+    "axios": "^1.7.5",
     "bootstrap": "^5.3.3",
     "flowbite": "^2.5.1",
->>>>>>> main
+    "postcss": "^8.4.41",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",

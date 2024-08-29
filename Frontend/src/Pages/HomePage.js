@@ -1,24 +1,29 @@
-import React from "react";
-import "../Styles/Home.css"; // Import the CSS file for HomePage
-
-const HomePage = () => {
+import React from 'react';
+import "../Styles/Home.css";
+function HeroSection() {
   return (
-    <section className="home-page">
-      <div className="home-page__background">
-        <div className="home-page__overlay"></div>
-        <div className="home-page__content">
-          <h1 className="home-page__title">Explore Our World</h1>
-          <p className="home-page__description">
-            Dive into our projects, discover new insights, and join our mission
-            to make a difference.
-          </p>
-          <a href="/contact" className="home-page__cta">
-            Get in Touch
-          </a>
+    <section className="hero-section">
+      <div className="hero-overlay">
+        <div className="hero-text">
+          <h2>Discover Your Impact</h2>
+          <h1>
+            Hands On Heroes: <span className="highlight">Your Path to Making a Difference</span> One Meaningful Contribution at a <span className="highlight">Time</span>.
+          </h1>
+          <div className="hero-buttons">
+            <a href="#" className="learn-more-btn">Learn More</a>
+            <a href="#" className="donate-now-btn">Donate Now</a>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default HomePage;
+}
+function App() {
+  return (
+    <div>
+      {/* <Header /> */}
+      <HeroSection />
+    </div>
+  );
+}
+export default App;
