@@ -4,14 +4,11 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Home from "./Pages/HomePage";
 import About from "./Pages/AboutPage";
-import Volunteer from "./Pages/VolunteerPage"; // Ensure this matches your actual file name
+import Volunteer from './Pages/VolunteerPage'; // Ensure this matches your actual file name
 import Donation from "./Pages/DonationPage";
-<<<<<<< HEAD
-=======
 import Register from "./Pages/Register"; //file path is correct
 import Login from './Pages/Login';
->>>>>>> 5877aca3f1ab19f977c4e1ccbe8f0570528d1ff3
-import Contact from "./Pages/ContactPage";
+import Contact from './Pages/ContactPage';
 import Menu from "./Components/Menu";
 
 function App() {
