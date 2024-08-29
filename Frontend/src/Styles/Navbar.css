@@ -9,10 +9,11 @@ ul li {
 
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.05);
+  font-weight: 200;
+  padding: 10px 20px 10px 3px;
 }
 
 .logo {
@@ -126,6 +127,16 @@ ul li {
 
 @media only screen and (max-width: 658px) {
   .navbar {
+
+@media screen and (max-width: 919px) {
+  .Nav {
+    padding: 25px 0px 25px 20px;
+  }
+  .NavElements {
+    display: none;
+  }
+  .NavButton {
+
     display: none;
   }
 

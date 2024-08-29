@@ -77,3 +77,138 @@ header {
   text-decoration: none;
   font-weight: bold;
 }
+.about-us-section {
+  background-color: #f8f8f8;
+  padding: 50px 20px;
+}
+
+.about-us-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-us-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.about-us-text h2 {
+  font-size: 1.5rem;
+  color: #f5a623;
+  margin-bottom: 10px;
+}
+
+.about-us-text h3 {
+  font-size: 1.2rem;
+  color: #003366;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.about-us-text p {
+  font-size: 1rem;
+  color: #003366;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-us-text p a {
+  color: #0077c8;
+  text-decoration: none;
+}
+
+.our-work-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0077c8;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.about-us-map {
+  flex: 1;
+}
+
+.about-us-map img {
+  width: 100%;
+  height: auto;
+}
+/* Existing styles */
+/* Add your previously mentioned CSS here */
+
+/* New Section (1 in 3 Families in York County) */
+.section {
+  padding: 50px 20px;
+  background-color: #f8f8f8; /* Light background to match the rest of your sections */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #f5a623;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  width: 500px; /* Increased width */
+  height: 350px; /* Increased height */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-content {
+  color: white;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  margin: 0 0 10px;
+}
+
+.card-content p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
