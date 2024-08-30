@@ -168,7 +168,7 @@ const DonationPage = () => {
           <input type="checkbox" required />
           <span>
             By submitting, I agree to receive communications from Hand's On
-            Hero's of York County, SC.
+            Hero's of Meck County, NC.
           </span>
         </div>
 
