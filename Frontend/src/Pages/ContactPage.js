@@ -5,7 +5,7 @@ import logoImage from "../Logos/Logo.png";
 
 const ContactForm = () => {
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevents the default form submission
+    event.preventDefault(); // Prevents the default form submissio
 
     const form = event.target;
     if (form.checkValidity()) {
