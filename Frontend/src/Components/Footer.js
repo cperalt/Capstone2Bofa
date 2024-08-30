@@ -1,8 +1,27 @@
 import "../Styles/Footer.css";
-import React from "react";
+import "../Styles/Newsletter.css";
+import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import axios from "axios"; // Import axios for making HTTP requests
 
 function Footer() {
+  const [email, setEmail] = useState(""); // State to store email input
+  const [message, setMessage] = useState(""); // State to store success/error messages
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3001/subscribe", {
+        email,
+      }); // Send POST request to server
+      setMessage(response.data.message); // Set success message
+      setEmail(""); // Clear email input
+    } catch (error) {
+      setMessage("Subscription failed. Please try again."); // Set error message
+    }
+  };
+
   return (
     <div className="footer">
       <div className="sb-footer-section-padding">
@@ -16,7 +35,7 @@ function Footer() {
               <p>Get To Know Us</p>
             </a>
             <a href="/individual">
-              <p>Volunter</p>
+              <p>Volunteer</p>
             </a>
           </div>
           <div className="sb-footer-links-div">
@@ -30,13 +49,12 @@ function Footer() {
             <a href="/home">
               <p>About</p>
             </a>
-            <a href="/volunter">
+            <a href="/volunteer">
               <p>Volunteer</p>
             </a>
-            <a href="/volunter">
+            <a href="/volunteer">
               <p>Get Involved</p>
             </a>
-
             <a href="/donation">
               <p>Donation</p>
             </a>
@@ -79,7 +97,28 @@ function Footer() {
             </div>
           </div>
         </div>
-        <hr></hr>
+
+        {/* Newsletter Section */}
+        <div className="newsletter-section">
+          <h4>Subscribe to Our Newsletter</h4>
+          <form onSubmit={handleSubscribe}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              aria-label="Email Address"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} // Update email state on input change
+            />
+            <button className="submit-button" type="submit">
+              Subscribe
+            </button>
+          </form>
+          {message && <p className="message">{message}</p>}{" "}
+          {/* Display success/error message */}
+        </div>
+
+        <hr />
 
         <div className="sb-footer-below">
           <div className="sb-footer-copyright">
