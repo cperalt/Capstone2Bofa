@@ -26,9 +26,13 @@ ul li {
 }
 .nav-item a {
   text-decoration: none;
-  color: rgb(11, 11, 11);
+  color: #539ed0;
   position: relative;
 }
+.nav-item .sign-in {
+  color: white !important;
+}
+
 .nav-item a::after {
   content: "";
   position: absolute;
@@ -46,7 +50,7 @@ ul li {
   transform-origin: bottom left;
 }
 .nav-item.sign-in a {
-  background-color: #539ED0;
+  background-color: #539ed0;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
   color: #fff;
@@ -89,9 +93,9 @@ ul li {
   position: absolute;
   width: 100%;
   margin: auto;
-  background: dodgerblue;
+  background: rgb(255, 255, 255);
   border-radius: 4px;
-  color: white;
+  color: #539ed0;
   transition: ease all 0.4s;
   z-index: 1000; /* Ensure it's on top of other content */
 }
@@ -103,15 +107,16 @@ ul li {
 }
 .nav-item a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
 }
-@media only screen and (max-width: 658px) {
+
+@media only screen and (max-width: 847px) {
   .navbar {
     display: none;
   }
   .mobile-navbar {
     display: flex;
     flex-direction: column;
+    background-color: #fff;
   }
 }
 @media only screen and (max-width: 550px) {
