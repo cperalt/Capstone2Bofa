@@ -6,6 +6,7 @@ import Home from "./Pages/HomePage";
 import Donation from "./Pages/DonationPage";
 import Volunteer from "./Pages/VolunteerPage";
 import Register from "./Pages/Register";
+import Donation from "./Pages/DonationPage";
 import Login from "./Pages/Login";
 import Contact from "./Pages/ContactPage";
 import MobileNavbar from "../src/Components/MobileNavbar";
