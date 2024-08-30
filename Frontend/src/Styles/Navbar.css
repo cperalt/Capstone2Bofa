@@ -32,8 +32,11 @@ ul li {
 
 .nav-item a {
   text-decoration: none;
-  color: rgb(11, 11, 11);
+  color: #539ed0;
   position: relative;
+}
+.nav-item .sign-in {
+  color: white !important;
 }
 
 .nav-item a::after {
@@ -104,9 +107,9 @@ ul li {
   position: absolute;
   width: 100%;
   margin: auto;
-  background: dodgerblue;
+  background: rgb(255, 255, 255);
   border-radius: 4px;
-  color: white;
+  color: #539ed0;
   transition: ease all 0.4s;
   z-index: 1000; /* Ensure it's on top of other content */
 }
@@ -121,10 +124,9 @@ ul li {
 
 .nav-item a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
 }
 
-@media only screen and (max-width: 658px) {
+@media only screen and (max-width: 847px) {
   .navbar {
     display: none;
   }
@@ -132,6 +134,7 @@ ul li {
   .mobile-navbar {
     display: flex;
     flex-direction: column;
+    background-color: #fff;
   }
 }
 
