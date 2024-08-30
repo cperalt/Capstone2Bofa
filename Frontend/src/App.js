@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Home from "./Pages/HomePage";
-import Donation from "./Pages/DonationPage";
 import Volunteer from "./Pages/VolunteerPage"; // Ensure this matches your actual file name
 import Donation from "./Pages/DonationPage";
 import Register from "./Pages/Register"; //file path is correct
@@ -16,8 +15,8 @@ function App() {
 
   return (
     <Router>
-      <Navbar clicked={clicked} isClicked={isClicked} />
-      {clicked ? <Menu /> : null}
+      <Navbar />
+      <MobileNavbar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
