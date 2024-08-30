@@ -22,7 +22,7 @@ const MobileNavbar = () => {
   return (
     <nav className="mobile-navbar">
       <img
-        src="https://www.freeiconspng.com/uploads/volunteer-icon-10.png"
+        src="https://www.compassus.com/wp-content/uploads/2023/01/How-to-Become-a-Hospice-Volunteer-Logo-e1672963939224-300x239.png"
         width="150"
         alt="a logo"
       />
@@ -43,11 +43,6 @@ const MobileNavbar = () => {
           <li className="mobile-navbar-menu-item">
             <a href="/" className="mobile-navbar-menu-link">
               Home
-            </a>
-          </li>
-          <li className="mobile-navbar-menu-item">
-            <a href="/about" className="mobile-navbar-menu-link">
-              About
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
