@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Home from "./Pages/HomePage";
 import Donation from "./Pages/DonationPage";
 import Volunteer from "./Pages/VolunteerPage"; // Ensure this matches your actual file name
+import Donation from "./Pages/DonationPage";
 import Register from "./Pages/Register"; //file path is correct
 import Login from "./Pages/Login";
 import Contact from "./Pages/ContactPage";
@@ -15,12 +16,12 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
-      <MobileNavbar />
+      <Navbar clicked={clicked} isClicked={isClicked} />
+      {clicked ? <Menu /> : null}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/volunter" element={<Volunteer />} />
+          <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/Register" element={<Register />} />
