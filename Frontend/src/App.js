@@ -13,10 +13,11 @@ import Menu from "./Components/Menu";
 
 function App() {
   const [clicked, isClicked] = useState(false);
+
   return (
     <Router>
-      <Navbar />
-      <MobileNavbar />
+      <Navbar clicked={clicked} isClicked={isClicked} />
+      {clicked ? <Menu /> : null}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,12 +26,12 @@ function App() {
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Login" element={<Login/>} />
         </Routes>
       </main>
       <Footer />
     </Router>
   );
 }
+
 export default App;
-// App.js (app.jli)
