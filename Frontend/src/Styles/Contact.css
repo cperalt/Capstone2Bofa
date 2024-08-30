@@ -1,221 +1,171 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: "jost", sans-serif;
-  list-style: none;
-  text-decoration: none;
+.contact-page {
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
 }
-body {
+
+.contact-hero-section {
+  background-image: url("https://www.unitedwayofyc.org/wp-content/uploads/united-way-of-york-county.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/*Start Of Form*/
-.container {
   position: relative;
-  width: 100%;
-  max-width: 900px;
-  padding: 40px;
-  display: flex;
-  gap: 80px;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 10px rgb(230, 229, 229);
-  margin-bottom: 20%;
-  margin-top: 10%;
-  margin-left: 15%;
 }
 
-.left-form {
-  width: 55%;
-}
-.heading {
-  font-size: 35px;
-  font-weight: 600;
-  line-height: 1;
-  color: gray;
-}
-.text {
-  font-size: 14px;
-  color: rgb(0, 0, 0);
-  margin-top: 20px;
-}
-
-form {
-  margin-top: 20px;
-}
-.inputform {
-  position: relative;
-  margin-bottom: 20px;
-}
-.inputform input,
-.inputform textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
+.contact-hero-overlay {
+  padding: 30px;
   border-radius: 5px;
-  color: black;
-  border: none;
-  outline: none;
-  background-color: rgb(242, 246, 247);
+  text-align: center;
 }
 
-.inputform textarea {
-  resize: none;
-  height: 100%;
+.contact-hero-overlay h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 1000;
+  margin: 0;
+}
+.contact-hero-overlay p {
+  color: #f5a623;
 }
 
-.inputform input::placeholder,
-.inputform textarea::placeholder {
-  color: rgba(0, 0, 0, 0.42);
-  font-size: 14px;
+.contact-sections {
+  margin-top: 50px;
 }
 
-.btn {
+.contact-info-section,
+.contact-form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.contact-info-section {
+  font-size: 1.1rem;
+  font-weight: 1000;
+}
+
+.contact-info-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-info-section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.contact-form-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-weight: 1000;
+  color: #333;
+}
+
+.contact-form {
   width: 100%;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  background-color: #03576d;
+  max-width: 500px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+  text-align: left; /* Align labels and inputs to the left */
+}
+
+.contact-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form .form-group textarea {
+  height: 200px;
+}
+.phone-number {
+  color: #539ed0;
+}
+
+.submit-button {
+  background-color: #005291;
+  color: white;
+  padding: 15px 30px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.5s;
-}
-.btn:hover {
-  background-color: gray;
-}
-.right-form {
-  width: 45%;
-  border-left: 1px solid #03576d;
-}
-.visual {
-  display: flex;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
   width: 100%;
-  margin: 0 auto;
+  max-width: 200px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  align-self: center;
 }
-.visual img {
-  width: 80%;
-  margin: auto;
-  margin-top: 30px;
+
+.submit-button:hover {
+  background-color: #003f74;
 }
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+
+.required-asterisk {
+  color: red;
+}
+
+.contact-form-section {
+  background-color: #f6f3f3aa;
+}
+
+/* Style for success message */
+.success-message {
+  background-color: #d4edda; /* Light green background for success */
+  color: #155724; /* Dark green text color */
+  border: 1px solid #c3e6cb; /* Green border */
+  border-radius: 5px;
+  padding: 15px;
   margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
 }
-.info-box .text {
+
+.success-message h2 {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 25px;
-}
-.form-icons {
-  position: absolute;
-  right: -50px;
-  bottom: 50px;
-  width: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-  font-size: 25px;
-  align-items: center;
-  border-bottom-right-radius: 30px;
-  background-color: #03576d;
-}
-.book {
-  color: white;
+  font-size: 1.5rem;
 }
 
-.twit {
-  color: white;
-}
-.gram {
-  color: white;
-}
-.git {
-  color: white;
-}
-.linked {
-  color: white;
+.success-message p {
+  margin: 10px 0 0;
 }
 
+/* Media query to stack sections on smaller screens */
 @media (max-width: 768px) {
-  .container {
+  .contact-sections {
     flex-direction: column;
-    gap: 40px;
-    padding: 20px;
-    padding-top: 40px;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
-    margin-left: 0%;
-  }
-  .left-form,
-  .right-form {
-    width: 100%;
-  }
-  .contact-info {
-    margin-top: 10px;
-  }
-  .form-icons {
-    position: relative;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 200px;
-    margin: auto;
-    padding: 10px 20px;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 667px) {
-  .product {
-    padding-top: 20%;
-    font-size: 12px;
-  }
-  #product-list {
-    padding-left: 20px;
   }
 
-  h1 {
-    margin-top: 40px;
+  .contact-info-section,
+  .contact-form-section {
+    margin: 0;
+    align-items: center;
   }
-  .right-form {
-    border-left: none;
-  }
-  .text {
-    font-size: 14px;
-    color: rgb(0, 0, 0);
-    margin-top: 20px;
-  }
-  .heading {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1;
-    color: gray;
-    margin-top: 80px;
-  }
-  .logo img {
-    max-width: 70px;
-    height: auto;
-  }
-  .visual img {
-    width: 60%;
-    margin: auto;
-    margin-top: 30px;
-  }
-  .sidebar img {
-    max-width: 100px;
-    height: auto;
-    margin-top: 20px;
-    display: flex;
-    width: 100vw;
+
+  .contact-form {
+    width: 90%;
   }
 }
