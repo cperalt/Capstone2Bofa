@@ -2,41 +2,33 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-
 ul li {
   padding: 15px;
 }
-
 .navbar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.05);
-  font-weight: 200;
-  padding: 10px 20px 10px 3px;
 }
-
 .logo {
   font-size: 2rem;
   font-weight: bold;
   color: rgb(11, 11, 11);
   text-transform: uppercase;
 }
-
 .menu_list {
   display: flex;
 }
-
 .nav-item {
   padding: 15px;
 }
-
 .nav-item a {
   text-decoration: none;
   color: rgb(11, 11, 11);
   position: relative;
 }
-
 .nav-item a::after {
   content: "";
   position: absolute;
@@ -49,26 +41,22 @@ ul li {
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
 }
-
 .nav-item a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
 .nav-item.sign-in a {
-  background-color: #539ed0;
+  background-color: #539ED0;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
   color: #fff;
   font-weight: 700;
   padding: 10px 25px;
 }
-
 .nav-item.sign-in a:hover {
   transform: scale(1.05);
   transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
-
 .mobile-navbar {
   display: none;
   padding: 10px;
@@ -78,14 +66,12 @@ ul li {
   right: 0;
   z-index: 1000; /* Ensure it's on top of other content */
 }
-
 .mobile-navbar-logo {
   font-size: 3rem;
   font-weight: bold;
   color: rgb(11, 11, 11);
   text-transform: uppercase;
 }
-
 .mobile-navbar-menu-icon {
   position: absolute;
   top: 20px;
@@ -93,11 +79,9 @@ ul li {
   cursor: pointer;
   z-index: 1001; /* Ensure it's on top of the menu */
 }
-
 .mobile-navbar-menu-container {
   position: relative;
 }
-
 .mobile-navbar-menu-list {
   display: flex;
   flex-direction: column;
@@ -111,41 +95,25 @@ ul li {
   transition: ease all 0.4s;
   z-index: 1000; /* Ensure it's on top of other content */
 }
-
 .mobile-navbar-menu-open {
   top: 10px;
 }
-
 .mobile-navbar-menu-closed {
   top: -600px;
 }
-
 .nav-item a {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
-
 @media only screen and (max-width: 658px) {
   .navbar {
-
-@media screen and (max-width: 919px) {
-  .Nav {
-    padding: 25px 0px 25px 20px;
-  }
-  .NavElements {
     display: none;
   }
-  .NavButton {
-
-    display: none;
-  }
-
   .mobile-navbar {
     display: flex;
     flex-direction: column;
   }
 }
-
 @media only screen and (max-width: 550px) {
   .mobile-navbar img:first-of-type {
     display: none;
