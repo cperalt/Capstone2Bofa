@@ -5,6 +5,7 @@ import graduation from '../graduation.png';
 import disaster from '../flooded-house.png';
 import healthcare from '../healthcare.png';
 
+
 const VolunteerPage = () => {
   return (
     <div className="volunteer-page">
@@ -73,20 +74,40 @@ const VolunteerPage = () => {
       <section className="categories">
         <h2>Explore by Category</h2>
         <div className="category-cards">
-          <div className="card">
+          <div className="cards">
           <img src={graduation} alt="Education Icon" />
             <h3>Education</h3>
             <p>Empower the next generation by volunteering in educational programs.</p>
           </div>
-          <div className="card">
+          <div className="cards">
           <img src={healthcare} alt="Healthcare Icon" />
             <h3>Health</h3>
             <p>Contribute to health and wellness initiatives in your community.</p>
           </div>
-          <div className="card">
+          <div className="cards">
           <img src={disaster} alt="Disaster relief icon" />
             <h3>Disaster Relief</h3>
             <p>Provide support and relief during emergencies and natural disasters.</p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Impact Statements Carousel */}
+      <section className="impact-carousel">
+        <h2>What Our Volunteers Say</h2>
+        <div className="carousel">
+          <div className="carousel-item">
+            <p>"Volunteering with Hands on Heroes has been life-changing. The community support and the impact I have been able to make are beyond words."</p>
+            <p>- Sarah W.</p>
+          </div>
+          <div className="carousel-item">
+            <p>"I’ve met amazing people and learned so much about the importance of giving back. I can't recommend this experience enough!"</p>
+            <p>- John D.</p>
+          </div>
+          <div className="carousel-item">
+            <p>"Every moment spent volunteering has been rewarding. The ability to contribute to disaster relief efforts is something I’m incredibly proud of."</p>
+            <p>- Emily R.</p>
           </div>
         </div>
       </section>
