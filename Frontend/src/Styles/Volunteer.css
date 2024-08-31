@@ -87,7 +87,7 @@ h2 {
   border-radius: 5px;
 }
 
-/* New styles for VolunteerMatch section */
+/*styles for VolunteerMatch section */
 .volunteer-match {
   margin-top: 40px;
 }
@@ -105,7 +105,8 @@ h2 {
 .volunteer-match-image img {
   width: 100%;
   height: auto;
-  border-radius: 1%;
+  border-radius: 2%;
+  margin-left: 3%;
 }
 
 .volunteer-match-text {
@@ -218,7 +219,7 @@ h2 {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 120px; /* Adjust based on content */
+  height: 120px; 
 }
 
 .carousel-item {
@@ -260,4 +261,107 @@ h2 {
 .impact-carousel p {
   color: white;
   font-size: 20px;
+}
+
+/* Media Queries for Tablets and Smaller Screens */
+@media screen and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 6vw;
+  }
+
+  .hero-content p {
+    font-size: 4vw;
+  }
+
+  .volunteer-match-content {
+    flex-direction: column;
+  }
+
+  .steps-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .step-number, .step p {
+    font-size: 4vw;
+  }
+
+  .step-result p {
+    font-size: 5vw;
+  }
+
+  .category-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cards {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .carousel {
+    height: auto;
+  }
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 6vw;
+  }
+
+  .hero-content p {
+    font-size: 4vw;
+  }
+
+  .volunteer-match-image img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards img {
+    width: 80px;
+    height: 80px;
+
+  }
+
+  .step-number {
+    font-size: 8vw;
+  }
+
+  .step-description, .step-result p {
+    font-size: 4vw;
+  }
+
+  .categories h2 {
+    font-size: 6vw;
+  }
+
+  .category-cards {
+    flex-direction: column;
+  }
+
+  .carousel-item {
+    font-size: 3vw;
+    padding: 0 10px;
+  }
+
+  .impact-carousel h2 {
+    font-size: 5vw;
+  }
+
+  .impact-carousel p {
+    font-size: 3vw;
+  }
 }
