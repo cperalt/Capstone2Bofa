@@ -2,14 +2,16 @@ import "../Styles/Footer.css";
 import "../Styles/Newsletter.css";
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import axios from "axios"; // Import axios for making HTTP requests
+import axios from "axios";
 
 function Footer() {
   const [email, setEmail] = useState(""); // State to store email input
   const [message, setMessage] = useState(""); // State to store success/error messages
+  const [loading, setLoading] = useState(false); // State to manage loading state
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await axios.post("http://localhost:3001/subscribe", {
@@ -18,7 +20,10 @@ function Footer() {
       setMessage(response.data.message); // Set success message
       setEmail(""); // Clear email input
     } catch (error) {
+      console.error("Subscription error:", error);
       setMessage("Subscription failed. Please try again."); // Set error message
+    } finally {
+      setLoading(false); // Reset loading state
     }
   };
 
@@ -110,11 +115,15 @@ function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)} // Update email state on input change
             />
-            <button className="submit-button" type="submit">
-              Subscribe
+            <button className="submit-button" type="submit" disabled={loading}>
+              {loading ? "Subscribing..." : "Subscribe"}
             </button>
           </form>
-          {message && <p className="message">{message}</p>}{" "}
+          {message && (
+            <p className="message" role="alert">
+              {message}
+            </p>
+          )}{" "}
           {/* Display success/error message */}
         </div>
 
