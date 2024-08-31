@@ -1,8 +1,11 @@
+/* General Styling */
 .contact-page {
   margin: 0 auto;
   font-family: "Arial", sans-serif;
+  color: #333;
 }
 
+/* Hero Section Styling */
 .contact-hero-section {
   background-image: url("https://www.unitedwayofyc.org/wp-content/uploads/united-way-of-york-county.jpg");
   background-size: cover;
@@ -12,48 +15,48 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .contact-hero-overlay {
-  padding: 30px;
-  border-radius: 5px;
   text-align: center;
 }
 
 .contact-hero-overlay h1 {
   color: white;
   font-size: 3rem;
-  font-weight: 1000;
+  font-weight: bold;
   margin: 0;
 }
+
 .contact-hero-overlay p {
   color: #f5a623;
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
+/* Sections Styling */
 .contact-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 50px;
+  padding: 0 20px;
 }
 
 .contact-info-section,
 .contact-form-section {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 80px;
+  min-width: 300px;
+  max-width: 45%;
+  margin-bottom: 40px;
 }
 
-.contact-info-section {
-  font-size: 1.1rem;
-  font-weight: 1000;
-}
-
-.contact-info-section h2 {
-  font-size: 2.2rem;
+.contact-info-section h2,
+.contact-form-section h2 {
+  font-size: 2rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #005291;
 }
 
 .contact-info-section p {
@@ -62,46 +65,61 @@
   color: #555;
 }
 
-.contact-form-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  font-weight: 1000;
-  color: #333;
+.operating-hours h3,
+.need-help h3 {
+  font-size: 1.5rem;
+  color: #005291;
+  margin-bottom: 10px;
 }
 
+/* Form Styling */
 .contact-form {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  background-color: #f8f8f8;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form .form-group {
   margin-bottom: 20px;
-  text-align: left; /* Align labels and inputs to the left */
 }
 
 .contact-form .form-group label {
   display: block;
   font-weight: bold;
-  margin-bottom: 10px;
-  color: #555;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .contact-form .form-group input,
 .contact-form .form-group textarea {
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 .contact-form .form-group textarea {
-  height: 200px;
-}
-.phone-number {
-  color: #539ed0;
+  height: 150px;
+  resize: none;
 }
 
+.contact-form .form-group.consent-group {
+  display: flex;
+  align-items: center;
+}
+
+.contact-form .form-group.consent-group .consent-text {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Button Styling */
 .submit-button {
   background-color: #005291;
   color: white;
@@ -114,58 +132,109 @@
   transition: background-color 0.3s ease;
   width: 100%;
   max-width: 200px;
-  margin-top: 10px;
-  margin-bottom: 25px;
-  align-self: center;
 }
 
 .submit-button:hover {
-  background-color: #003f74;
+  background-color: #00407a;
 }
 
-.required-asterisk {
+/* Error Message Styling */
+.error-message {
   color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 
-.contact-form-section {
-  background-color: #f6f3f3aa;
-}
-
-/* Style for success message */
+/* Success Message Styling */
 .success-message {
-  background-color: #d4edda; /* Light green background for success */
-  color: #155724; /* Dark green text color */
-  border: 1px solid #c3e6cb; /* Green border */
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
   border-radius: 5px;
   padding: 15px;
   margin-top: 20px;
   font-size: 1rem;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.success-message h2 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.success-message p {
-  margin: 10px 0 0;
-}
-
-/* Media query to stack sections on smaller screens */
+/* Media query for small screens */
 @media (max-width: 768px) {
   .contact-sections {
     flex-direction: column;
+    align-items: center;
   }
 
   .contact-info-section,
   .contact-form-section {
-    margin: 0;
-    align-items: center;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 20px; /* Add padding to ensure content isn't too close to the edges */
   }
 
   .contact-form {
     width: 90%;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 15px; /* Reduce margin for better spacing on small screens */
+  }
+
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+    padding: 12px; /* Adjust padding for a better touch target on smaller screens */
+  }
+
+  .contact-hero-section {
+    height: 250px; /* Reduce hero section height on smaller screens */
+  }
+
+  .contact-hero-overlay h1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .contact-hero-overlay p {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .submit-button {
+    padding: 12px 20px; /* Adjust padding for smaller screens */
+    font-size: 1rem; /* Reduce font size for a more compact look */
+  }
+
+  .contact-info-section p,
+  .contact-info-section h2,
+  .contact-form-section h2 {
+    font-size: 1rem; /* Adjust font size for text */
+    line-height: 1.4; /* Improve line spacing for readability */
+  }
+}
+
+/* Media query for very small screens (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+  .contact-form {
+    width: 95%; /* Increase width slightly for smaller screens */
+  }
+
+  .contact-form .form-group input,
+  .contact-form .form-group textarea {
+    font-size: 0.9rem; /* Reduce font size for inputs and text areas */
+  }
+
+  .submit-button {
+    padding: 10px 18px; /* Further adjust padding for very small screens */
+    font-size: 0.9rem; /* Reduce font size for buttons */
+  }
+
+  .contact-hero-section {
+    height: 200px; /* Further reduce hero section height */
+  }
+
+  .contact-hero-overlay h1 {
+    font-size: 1.8rem; /* Further reduce font size */
+  }
+
+  .contact-hero-overlay p {
+    font-size: 0.9rem; /* Further reduce font size */
   }
 }

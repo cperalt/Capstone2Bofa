@@ -7,7 +7,7 @@ const ContactPage = () => {
     email: "",
     subject: "",
     message: "",
-    consent: false, // Added for consent checkbox
+    consent: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -64,9 +64,9 @@ const ContactPage = () => {
 
       <div className="contact-sections">
         <div className="contact-info-section">
-          <h2>Hand's On Hero's Of Meck County, NC</h2>
+          <h2>Hands On Heros Of Meck County, NC</h2>
           <p>
-            <strong>HandsOn Heroes</strong>
+            <strong>Hands On Heroes</strong>
           </p>
           <p>123 Volunteer Lane, Suite 100, Charlotte, NC 28202</p>
           <p>
