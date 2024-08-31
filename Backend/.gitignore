@@ -1,2 +1,8 @@
+# Ignore environment files
 .env
-node_modules
+
+# Alternatively, if you have other env files
+*.env
+
+# Ignore node_modules folder
+node_modules/
