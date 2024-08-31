@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <img
-        src="https://www.compassus.com/wp-content/uploads/2023/01/How-to-Become-a-Hospice-Volunteer-Logo-e1672963939224-300x239.png"
+        src="https://files.slack.com/files-tmb/T5VCY49B3-F07KDLZQ2TV-40c8b6546d/hohlogoo_480.png"
         width="150"
         alt="a logo"
       />

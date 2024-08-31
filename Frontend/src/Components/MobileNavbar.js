@@ -65,6 +65,11 @@ const MobileNavbar = () => {
               Sign Up
             </a>
           </li>
+          <li className="mobile-navbar-menu-item">
+            <a href="/contact" className="mobile-navbar-menu-link">
+              Contact
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
