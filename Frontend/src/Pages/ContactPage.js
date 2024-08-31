@@ -64,13 +64,13 @@ const ContactPage = () => {
 
       <div className="contact-sections">
         <div className="contact-info-section">
-          <h2>Hands On Heros Of Meck County, NC</h2>
+          <h2>HANDS ON HEROS</h2>
           <p>
-            <strong>Hands On Heroes</strong>
+            <strong>LOCATION</strong>
           </p>
           <p>123 Volunteer Lane, Suite 100, Charlotte, NC 28202</p>
           <p>
-            P: <span class="phone-number">(123) 456-7890</span>
+            P: <span className="phone-number">(123) 456-7890</span>
           </p>
           <p>F: (123) 456-7891</p>
           <div className="operating-hours">
@@ -80,19 +80,21 @@ const ContactPage = () => {
           <div className="need-help">
             <h3>NEED HELP?</h3>
             <p>
-              If you need help finding assistance, please call 2-1-1 or
-              866-892-9211 for referral information. For additional resources
-              visit Handsonheros.org.
+              If you need help finding assistance, please call{" "}
+              <span className="phone-number">2-1-1</span> or
+              <span className="phone-number"> 866-892-9211</span> for referral
+              information. For additional resources visit{" "}
+              <span className="phone-number">Handsonheros.org</span>
             </p>
           </div>
         </div>
 
         <div className="contact-form-section">
-          <h2>Get In Touch</h2>
+          <h2>GET IN TOUCH</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">
-                Name<span className="required-asterisk">*</span>
+                Name<span className="required-asterisk"> *</span>
               </label>
               <input
                 type="text"
@@ -106,7 +108,7 @@ const ContactPage = () => {
             </div>
             <div className="form-group">
               <label htmlFor="email">
-                Email<span className="required-asterisk">*</span>
+                Email<span className="required-asterisk"> *</span>
               </label>
               <input
                 type="email"
@@ -120,7 +122,7 @@ const ContactPage = () => {
             </div>
             <div className="form-group">
               <label htmlFor="subject">
-                Subject<span className="required-asterisk">*</span>
+                Subject<span className="required-asterisk"> *</span>
               </label>
               <input
                 type="text"
@@ -136,7 +138,7 @@ const ContactPage = () => {
             </div>
             <div className="form-group">
               <label htmlFor="message">
-                Message<span className="required-asterisk">*</span>
+                Message<span className="required-asterisk"> *</span>
               </label>
               <textarea
                 id="message"
@@ -159,8 +161,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                 />
                 <span className="consent-text">
-                  By submitting, I agree to receive communications from Hand's
-                  On Hero's, SC.
+                  By submitting, I agree to receive communications from HOH, NC.
                 </span>
               </label>
               {errors.consent && (

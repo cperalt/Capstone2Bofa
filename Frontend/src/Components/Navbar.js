@@ -1,15 +1,11 @@
 import React from "react";
 import "../Styles/Navbar.css";
-import logo from '../hohlogoo.png';
+import logo from "../hohlogoo.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <img className="hohlogo"
-        src={logo}
-        width="190"
-        alt="a logo"
-      />
+      <img className="hohlogo" src={logo} width="190" alt="a logo" />
       <div>
         <ul className="menu_list">
           <li className="nav-item home">

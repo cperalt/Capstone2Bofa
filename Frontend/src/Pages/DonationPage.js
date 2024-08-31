@@ -12,6 +12,7 @@ const DonationPage = () => {
     paymentMethod: "Credit Card",
     comments: "",
   });
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleDonationAmountChange = (amount) => {
     setDonationAmount(amount);
@@ -28,6 +29,26 @@ const DonationPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Donation Submitted:", donorInfo, "Amount:", donationAmount);
+
+    // Reset form fields
+    setDonationAmount(0);
+    setDonorInfo({
+      firstName: "",
+      lastName: "",
+      email: "",
+      donationCategory: "General Fund",
+      company: "NA",
+      paymentMethod: "Credit Card",
+      comments: "",
+    });
+
+    // Display success message
+    setSuccessMessage("Thank you for your donation!");
+
+    // Optionally, you can clear the success message after a few seconds
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000); // 5 seconds
   };
 
   return (
@@ -177,6 +198,11 @@ const DonationPage = () => {
           <button type="submit">Donate Now</button>
         </div>
       </form>
+
+      {/* Display success message */}
+      {successMessage && (
+        <div className="success-message">{successMessage}</div>
+      )}
     </div>
   );
 };
