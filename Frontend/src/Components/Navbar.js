@@ -1,12 +1,13 @@
 import React from "react";
 import "../Styles/Navbar.css";
+import logo from '../hohlogoo.png';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <img
-        src="https://www.compassus.com/wp-content/uploads/2023/01/How-to-Become-a-Hospice-Volunteer-Logo-e1672963939224-300x239.png"
-        width="150"
+      <img className="hohlogo"
+        src={logo}
+        width="190"
         alt="a logo"
       />
       <div>

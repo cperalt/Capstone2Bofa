@@ -18,6 +18,9 @@ ul li {
   color: rgb(11, 11, 11);
   text-transform: uppercase;
 }
+.hohlogo {
+  margin-left: 1%;
+}
 .menu_list {
   display: flex;
 }
