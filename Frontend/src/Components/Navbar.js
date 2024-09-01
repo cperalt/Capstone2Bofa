@@ -4,27 +4,41 @@ import logo from "../hohlogoo.png";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <img className="hohlogo" src={logo} width="190" alt="a logo" />
+    <nav className="navbar" aria-label="Main Navigation">
+      <a href="/" aria-label="Homepage">
+        <img className="hohlogo" src={logo} width="190" alt="HOH Logo" />
+      </a>
       <div>
         <ul className="menu_list">
           <li className="nav-item home">
-            <a href="/">HOME</a>
+            <a href="/" aria-label="Home">
+              HOME
+            </a>
           </li>
           <li className="nav-item work">
-            <a href="/volunteer">VOLUNTEER</a>
+            <a href="/volunteer" aria-label="Volunteer">
+              VOLUNTEER
+            </a>
           </li>
           <li className="nav-item services">
-            <a href="/donation">DONATION</a>
+            <a href="/donation" aria-label="Donation">
+              DONATION
+            </a>
           </li>
           <li className="nav-item services">
-            <a href="/contact">CONTACT</a>
+            <a href="/contact" aria-label="Contact">
+              CONTACT
+            </a>
           </li>
           <li className="nav-item register">
-            <a href="/Register">REGISTER</a>
+            <a href="/register" aria-label="Register">
+              REGISTER
+            </a>
           </li>
           <li className="nav-item sign-in">
-            <a href="/Login">SIGN IN</a>
+            <a href="/login" aria-label="Sign In">
+              SIGN IN
+            </a>
           </li>
         </ul>
       </div>
