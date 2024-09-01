@@ -1,8 +1,8 @@
 .footer {
-  background-color: #00233f; /* Updated background color */
+  background-color: #00233f;
 }
 
-.sb-footer {
+.sans-serif .sb-footer {
   display: flex;
   flex-direction: column;
 }
@@ -23,7 +23,7 @@
 }
 
 .sb-footer-links-div {
-  width: 150px;
+  width: 100px;
   margin: 1rem;
   display: flex;
   justify-content: flex-start;
@@ -54,7 +54,7 @@ a {
 .socialmedia {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Center align the social media icons */
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -105,43 +105,182 @@ a {
   font-weight: 600;
 }
 
-/* Responsive styles */
+.image-overlay-section {
+  position: relative;
+  margin: 20px 0;
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-images {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.overlay-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+  object-fit: cover;
+}
+
+.overlay-text {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.861);
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 1000;
+  font-family: "League Gothic", "Roboto Condensed", Helvetica, Arial;
+}
+
+.overlay-text:hover {
+  color: rgb(255, 255, 255);
+}
+
+.main-text {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.7rem;
+  color: rgba(255, 255, 255, 0.822);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-family: "League Gothic", "Roboto Condensed", Helvetica, Arial, sans-serif;
+  font-weight: 1000;
+  z-index: 1;
+}
+
+.newsletter-section {
+  background-color: #ffb351;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  margin-top: -20px;
+  color: #00233f;
+}
+
+.newsletter-section h4 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 1000;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.newsletter-section form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.form-row .input-group {
+  flex: 1;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.form-row .input-group:last-child {
+  margin-right: 0;
+}
+
+.newsletter-section input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.newsletter-section input[type="text"],
+.newsletter-section input[type="email"] {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-section button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #00233f;
+  font-size: 1rem;
+  font-weight: 1000;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.newsletter-section button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.newsletter-section .message {
+  margin-top: 1rem;
+  color: #00233f;
+}
+.sb-footer-btm p {
+  color: white;
+}
+.input-group label {
+  color: white;
+  font-weight: 1000;
+}
+
 @media screen and (max-width: 768px) {
-  .sb-footer-links {
+  .newsletter-section form {
     flex-direction: column;
     align-items: center;
   }
 
-  .sb-footer-links-div {
-    width: auto;
-    text-align: center;
-    margin: 1rem 0;
-  }
-
-  .socialmedia {
+  .form-row {
     flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    width: 100%;
   }
 
-  .socialmedia a {
-    font-size: 20px; /* Adjust size for smaller screens */
-    margin: 5px 0; /* Adjust margin for smaller screens */
+  .form-row .input-group {
+    margin-right: 0;
+    margin-bottom: 1rem;
   }
 
-  .sb-footer-below {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sb-footer-below-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sb-footer-below-links p {
-    margin-left: 0;
-    margin-top: 1rem;
+  .newsletter-section button {
+    width: 100%;
   }
 }
 

@@ -1,15 +1,20 @@
 
 .volunteer-page {
   font-family: 'Arial', sans-serif;
-  padding: 20px;
 }
 
 .hero {
+  position: relative;
+  background: url('https://www.unitedwayofyc.org/wp-content/uploads/united-way-of-york-county.jpg') no-repeat center center/cover;
   background-size: cover;
   background-position: center;
   padding: 60px;
   text-align: center;
   color: white;
+  height: 40vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .hero-content {
@@ -17,8 +22,24 @@
   margin: 0 auto;
 }
 
+.hero-content h1 {
+  font-size: 40px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: #F5A623;
+  padding-top: 1%;
+}
+
+
 h2 {
   text-align: center;
+}
+
+.categories{
+  padding-bottom: 3%;
+  padding-top: 3%;
 }
 
 .categories, .featured-opportunities, .user-impact {
@@ -38,7 +59,7 @@ h2 {
   margin-top: 20px;
 }
 
-.card, .opportunity-item {
+.cards, .opportunity-item {
   background-color: #f4f4f4;
   padding: 20px;
   border-radius: 10px;
@@ -46,13 +67,15 @@ h2 {
   text-align: center;
 }
 
-.card h3, .opportunity-item h3 {
+.cards h3, .opportunity-item h3 {
   margin-bottom: 10px;
 }
 
-.card p {
-  padding-left: 5%;
-  padding-right: 5%;
+.cards p {
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 3%;
+  font-size: 20px;
 }
 
 .view-details {
@@ -64,7 +87,7 @@ h2 {
   border-radius: 5px;
 }
 
-/* New styles for VolunteerMatch section */
+/*styles for VolunteerMatch section */
 .volunteer-match {
   margin-top: 40px;
 }
@@ -82,7 +105,8 @@ h2 {
 .volunteer-match-image img {
   width: 100%;
   height: auto;
-  border-radius: 1%;
+  border-radius: 2%;
+  margin-left: 3%;
 }
 
 .volunteer-match-text {
@@ -104,13 +128,13 @@ h2 {
   font-size: 20px;
 }
 
-.card h3 {
+.cards h3 {
   padding-top: 2%;
   font-size: 20px;
   font-weight: bold;
 }
 
-.card img {
+.cards img {
   height: 125px;
   width: 125px;
   margin-left: 37%;
@@ -172,4 +196,172 @@ h2 {
 
 .step-result p{
   font-size: 30px;
+}
+
+.cards:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-carousel {
+  text-align: center;
+  padding: 50px;
+  background-color: #F5A623;
+  margin-top: 3%;
+}
+
+.impact-carousel h2 {
+  margin-bottom: 20px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 120px; 
+}
+
+.carousel-item {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  text-align: center;
+  font-style: italic;
+  color: #333;
+}
+
+.carousel-item:nth-child(1) {
+  animation: fade-in-out 9s infinite;
+}
+
+.carousel-item:nth-child(2) {
+  animation: fade-in-out 9s infinite 3s;
+}
+
+.carousel-item:nth-child(3) {
+  animation: fade-in-out 9s infinite 6s;
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.impact-carousel h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.impact-carousel p {
+  color: white;
+  font-size: 20px;
+}
+
+/* Media Queries for Tablets and Smaller Screens */
+@media screen and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 6vw;
+  }
+
+  .hero-content p {
+    font-size: 4vw;
+  }
+
+  .volunteer-match-content {
+    flex-direction: column;
+  }
+
+  .steps-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .step-number, .step p {
+    font-size: 4vw;
+  }
+
+  .step-result p {
+    font-size: 5vw;
+  }
+
+  .category-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cards {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .carousel {
+    height: auto;
+  }
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 6vw;
+  }
+
+  .hero-content p {
+    font-size: 4vw;
+  }
+
+  .volunteer-match-image img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards img {
+    width: 80px;
+    height: 80px;
+
+  }
+
+  .step-number {
+    font-size: 8vw;
+  }
+
+  .step-description, .step-result p {
+    font-size: 4vw;
+  }
+
+  .categories h2 {
+    font-size: 6vw;
+  }
+
+  .category-cards {
+    flex-direction: column;
+  }
+
+  .carousel-item {
+    font-size: 3vw;
+    padding: 0 10px;
+  }
+
+  .impact-carousel h2 {
+    font-size: 5vw;
+  }
+
+  .impact-carousel p {
+    font-size: 3vw;
+  }
 }
