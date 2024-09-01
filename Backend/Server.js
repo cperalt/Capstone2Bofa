@@ -1,88 +1,117 @@
-const bcrypt = require('bcrypt');
-const mysql = require('mysql2');
-const cors = require('cors');
-const express = require('express');
+const mysql = require('mysql2'); // MySQL library
+const cors = require('cors'); // CORS middleware
+const express = require('express'); // Express framework
 
 const app = express();
-const PORT = 8081; // Define your port
+const PORT = 8081;
 
 app.use(cors());
-app.use(express.json()); // For parsing JSON bodies
+app.use(express.json()); // To parse JSON bodies
 
-// Create MySQL connection pool
-const DB = mysql.createPool({
-    host: 'database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com', // Your RDS endpoint
-    user: 'admin', // Your MySQL username
-    password: 'xwlsfQL76x', // Your MySQL password
-    database: '', // Your database name
+// Create MySQL connections for different databases
+const dbCapstone = mysql.createConnection({
+    host: 'database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com',
+    user: 'admin',
+    password: 'xwlsfQL76x',
+    database: 'CapstoneBofa',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    port: 3306
 });
 
-// Test the DB connection
-DB.getConnection((err, connection) => {
+const dbVolunteering = mysql.createConnection({
+    host: 'database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com',
+    user: 'admin',
+    password: 'xwlsfQL76x',
+    database: 'Volunteering',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    port: 3306
+});
+
+// Test the DB connections
+dbCapstone.connect((err) => {
     if (err) {
-        console.error('Database connection failed:', err.stack);
-        return;
+        console.error("Error connecting to the CapstoneBofa database:", err);
+    } else {
+        console.log("Connected to the CapstoneBofa database");
     }
-    console.log('Connected to MySQL database as ID:', connection.threadId);
 });
 
-// User registration endpoint
-app.post('/Register', (req, res) => {
-    const { username, email, password } = req.body;
-    
-    bcrypt.hash(password, 10, (err, hash) => {
-        if (err) {
-            return res.status(500).json({ error: 'Failed to hash password' });
-        }
+dbVolunteering.connect((err) => {
+    if (err) {
+        console.error("Error connecting to the Volunteering database:", err);
+    } else {
+        console.log("Connected to the Volunteering database");
+    }
+});
 
-        // Insert user into database
-        const query = 'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)';
-        DB.query(query, [username, email, hash], (error, results) => {
-            if (error) {
-                return res.status(500).json({ error: 'Failed to register user' });
-            }
-            res.status(201).json({ message: 'User registered successfully' });
-        });
+// User registration (CapstoneBofa DB)
+app.post('/register', (req, res) => {
+    const { first_name, last_name, email, password, is_admin } = req.body;
+
+    const query = "INSERT INTO users (first_name, last_name, email, password_hash, is_admin) VALUES (?, ?, ?, ?, ?)";
+    dbCapstone.query(query, [first_name, last_name, email, password, is_admin], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error inserting data');
+        }
+        res.status(200).send('User registered successfully');
     });
 });
 
-// User login endpoint
-app.post('/Login', (req, res) => {
+// User login (CapstoneBofa DB)
+app.post('/login', (req, res) => {
     const { email, password } = req.body;
 
-    // Fetch user from database
-    const query = 'SELECT password_hash, is_admin FROM users WHERE email = ?';
-    DB.query(query, [email], (error, results) => {
-        if (error) {
-            return res.status(500).json({ error: 'Failed to fetch user' });
+    const query = "SELECT * FROM users WHERE email = ? AND password = ?";
+    dbCapstone.query(query, [email, password], (err, results) => {
+        if (err) {
+            return res.status(500).send('Error retrieving user');
         }
         if (results.length === 0) {
-            return res.status(401).json({ error: 'Invalid email or password' });
+            return res.status(401).send('Invalid credentials');
         }
-
-        const { password_hash, is_admin } = results[0];
-
-        // Compare provided password with hashed password
-        bcrypt.compare(password, password_hash, (err, result) => {
-            if (err) {
-                return res.status(500).json({ error: 'Failed to compare passwords' });
-            }
-            if (result) {
-                res.status(200).json({ message: 'Login successful', is_admin });
-            } else {
-                res.status(401).json({ error: 'Invalid email or password' });
-            }
-        });
+        res.status(200).send('Login successful');
     });
 });
-
 
 // Welcome endpoint
 app.get('/', (req, res) => {
-    return res.json('Welcome to the backend');
+    res.json('Welcome to the backend');
+});
+
+// Registration endpoint (for testing purposes) - CapstoneBofa DB
+app.get('/register', (req, res) => {
+    dbCapstone.query('SELECT * FROM users', (err, results) => {
+        if (err) {
+            return res.status(500).send('Error retrieving data');
+        }
+        res.json(results);
+    });
+});
+
+// Login endpoint (for testing purposes) - CapstoneBofa DB
+app.get('/login', (req, res) => {
+    dbCapstone.query('SELECT * FROM users', (err, results) => {
+        if (err) {
+            return res.status(500).send('Error retrieving data');
+        }
+        res.json(results);
+    });
+});
+
+// Volunteering data endpoint (for testing purposes) - Volunteering DB
+app.get('/volunteering', (req, res) => {
+    dbVolunteering.query('SELECT * FROM Volunteering', (err, results) => {
+        if (err) {
+            console.log("hello")
+            return res.status(500).send('Error retrieving data');
+        }
+        res.json(results);
+    });
 });
 
 // Start server
