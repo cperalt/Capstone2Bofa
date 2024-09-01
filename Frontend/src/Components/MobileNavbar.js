@@ -61,8 +61,8 @@ const MobileNavbar = () => {
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
-            <a href="/sign-up" className="mobile-navbar-menu-link">
-              Sign Up
+            <a href="/Login" className="mobile-navbar-menu-link">
+              Login
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
