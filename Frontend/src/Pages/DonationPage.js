@@ -8,10 +8,11 @@ const DonationPage = () => {
     lastName: "",
     email: "",
     donationCategory: "General Fund",
-    company: "NA",
+    company: "",
     paymentMethod: "Credit Card",
     comments: "",
   });
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleDonationAmountChange = (amount) => {
     setDonationAmount(amount);
@@ -28,21 +29,41 @@ const DonationPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Donation Submitted:", donorInfo, "Amount:", donationAmount);
+
+    // Reset form fields
+    setDonationAmount(0);
+    setDonorInfo({
+      firstName: "",
+      lastName: "",
+      email: "",
+      donationCategory: "General Fund",
+      company: "",
+      paymentMethod: "Credit Card",
+      comments: "",
+    });
+
+    // Display success message
+    setSuccessMessage("Thank you for your donation!");
+
+    //  clear the success message after a few seconds
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 5000);
   };
 
   return (
     <div className="donation-page-container">
-      <div className="donation-page-hero-section">
+      <header className="donation-page-hero-section">
         <div className="overlay">
-          <h1>DONATE TO HANDS ON HEROES</h1>
-          <p className="donation-page-bold-goal">BE PART OF OUR BOLD GOAL</p>
+          <h1>Donate to Hands On Heroes</h1>
+          <p className="donation-page-bold-goal">Be Part of Our Bold Goal</p>
         </div>
-      </div>
+      </header>
 
-      <div className="donation-page-info-box">
-        <p className="info-box-title">
-          YOUR SUPPORT WILL DRIVE MEANINGFUL CHANGE THROUGHOUT OUR COMMUNITIES
-        </p>
+      <section className="donation-page-info-box">
+        <h2 className="info-box-title">
+          Your Support Will Drive Meaningful Change Throughout Our Communities
+        </h2>
         <p className="info-box-description">
           Our bold goal is to empower communities by connecting passionate
           volunteers with impactful projects in education and disaster relief.
@@ -59,62 +80,78 @@ const DonationPage = () => {
           Heroes today and help us make a significant impact in communities far
           and wide!
         </p>
-      </div>
+      </section>
 
       <img
         src="https://www.unitedwayofyc.org/wp-content/uploads/happy-family-2000x1200.jpg"
-        alt="Donation Banner"
+        alt="Happy family embracing each other"
         className="donation-page-banner"
       />
 
       <form onSubmit={handleSubmit} className="donation-page-form">
-        <div className="donation-page-amount-options">
-          <label>Donation Amount*</label>
+        <fieldset className="donation-page-amount-options">
+          <legend>Donation Amount*</legend>
           {[35, 50, 100, 1000, 5000].map((amount) => (
             <button
               key={amount}
               type="button"
+              aria-label={`Donate ${amount} dollars`}
               className={donationAmount === amount ? "active" : ""}
               onClick={() => handleDonationAmountChange(amount)}
             >
               ${amount}
             </button>
           ))}
+          <label htmlFor="other-amount" className="visually-hidden">
+            Other Amount
+          </label>
           <input
+            id="other-amount"
             type="number"
             placeholder="Other"
             value={donationAmount > 5000 ? donationAmount : ""}
             onChange={(e) => handleDonationAmountChange(Number(e.target.value))}
           />
-        </div>
+        </fieldset>
 
-        <div className="donation-page-donor-information">
-          <label>Donor Information</label>
+        <fieldset className="donation-page-donor-information">
+          <legend>Donor Information</legend>
+          <label htmlFor="first-name">First Name*</label>
           <input
+            id="first-name"
             type="text"
             name="firstName"
-            placeholder="First Name*"
+            placeholder="First Name"
             value={donorInfo.firstName}
             onChange={handleInputChange}
             required
           />
+
+          <label htmlFor="last-name">Last Name*</label>
           <input
+            id="last-name"
             type="text"
             name="lastName"
-            placeholder="Last Name*"
+            placeholder="Last Name"
             value={donorInfo.lastName}
             onChange={handleInputChange}
             required
           />
+
+          <label htmlFor="email">Email*</label>
           <input
+            id="email"
             type="email"
             name="email"
-            placeholder="Email*"
+            placeholder="Email"
             value={donorInfo.email}
             onChange={handleInputChange}
             required
           />
+
+          <label htmlFor="donation-category">Donation Category*</label>
           <select
+            id="donation-category"
             name="donationCategory"
             value={donorInfo.donationCategory}
             onChange={handleInputChange}
@@ -125,19 +162,23 @@ const DonationPage = () => {
             <option value="Honorarium">Honorarium</option>
             <option value="Sponsorship">Sponsorship</option>
           </select>
+
+          <label htmlFor="company">Company (if applicable)</label>
           <input
+            id="company"
             type="text"
             name="company"
-            placeholder="Company (if applicable)"
+            placeholder="Company"
             value={donorInfo.company}
             onChange={handleInputChange}
-            required
           />
-        </div>
+        </fieldset>
 
-        <div className="donation-page-payment-options">
-          <label>Payment Options</label>
+        <fieldset className="donation-page-payment-options">
+          <legend></legend>
+          <label htmlFor="payment-method">Payment Method*</label>
           <select
+            id="payment-method"
             name="paymentMethod"
             value={donorInfo.paymentMethod}
             onChange={handleInputChange}
@@ -149,34 +190,74 @@ const DonationPage = () => {
             <option value="Check">Send Payment By Check</option>
           </select>
           <p>
-            *Please send check to Lancest Rd 4323, SC, PO Box 925 Rock Hill, SC
-            27567
+            *Please send check to 123 Volunteer Lane, Suite 100, Charlotte, NC
+            28202
           </p>
-        </div>
 
-        <div className="donation-page-comments">
-          <label>Comments (Optional)</label>
+          {/* Conditional rendering of credit card form */}
+          {donorInfo.paymentMethod === "Credit Card" && (
+            <div className="credit-card-form">
+              <label htmlFor="card-number">Card Number*</label>
+              <input
+                id="card-number"
+                type="text"
+                name="cardNumber"
+                placeholder="Card Number"
+                required
+              />
+
+              <label htmlFor="card-expiry">Expiry Date*</label>
+              <input
+                id="card-expiry"
+                type="text"
+                name="cardExpiry"
+                placeholder="MM/YY"
+                required
+              />
+
+              <label htmlFor="card-cvc">CVC*</label>
+              <input
+                id="card-cvc"
+                type="text"
+                name="cardCvc"
+                placeholder="CVC"
+                required
+              />
+            </div>
+          )}
+        </fieldset>
+
+        <fieldset className="donation-page-comments">
+          <legend></legend>
+          <label htmlFor="comments">Comments</label>
           <textarea
+            id="comments"
             name="comments"
-            placeholder="If you have any questions please contact the Hand's On Hero's office..."
+            placeholder="If you have any questions please contact the HandsOn Heroes office..."
             value={donorInfo.comments}
             onChange={handleInputChange}
           />
-        </div>
+        </fieldset>
 
-        <div className="donation-page-consent">
-          <input type="checkbox" required />
-          <span>
-            By submitting, I agree to receive communications from Hand's On
-            Hero's of Meck County, NC.
-          </span>
-        </div>
+        <fieldset className="donation-page-consent">
+          <label>
+            <input type="checkbox" required />
+            By submitting, I agree to receive communications from HandsOn Heroes
+            of Meck County, NC.
+          </label>
+        </fieldset>
 
         <div className="donation-page-submit-section">
           <p>Total Donation Amount: ${donationAmount}</p>
           <button type="submit">Donate Now</button>
         </div>
       </form>
+
+      {successMessage && (
+        <div className="success-message" role="alert" aria-live="polite">
+          {successMessage}
+        </div>
+      )}
     </div>
   );
 };
