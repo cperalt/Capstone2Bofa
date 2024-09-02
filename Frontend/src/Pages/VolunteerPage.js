@@ -12,7 +12,7 @@ const VolunteerPage = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1>Make a Difference Today</h1>
+          <h1>Make a difference today</h1>
           <p>Find volunteer opportunities that match your passion and location.</p>
         </div>
       </section>

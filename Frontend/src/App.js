@@ -6,7 +6,6 @@ import Home from "./Pages/HomePage";
 import Donation from "./Pages/DonationPage";
 import Volunteer from "./Pages/VolunteerPage";
 import Register from "./Pages/Register";
-import Donation from "./Pages/DonationPage";
 import Login from "./Pages/Login";
 import Contact from "./Pages/ContactPage";
 import MobileNavbar from "../src/Components/MobileNavbar";
@@ -20,8 +19,6 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
