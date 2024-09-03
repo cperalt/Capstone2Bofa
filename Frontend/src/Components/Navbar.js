@@ -30,14 +30,9 @@ const Navbar = () => {
               CONTACT
             </a>
           </li>
-          <li className="nav-item register">
-            <a href="/register" aria-label="Register">
-              REGISTER
-            </a>
-          </li>
           <li className="nav-item sign-in">
             <a href="/login" aria-label="Sign In">
-              SIGN IN
+             SIGN IN
             </a>
           </li>
         </ul>
