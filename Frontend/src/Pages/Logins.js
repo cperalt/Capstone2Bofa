@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,9 @@ function Login() {
     email: '',
     password: '',
   });
+
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,25 +45,56 @@ function Login() {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log('Form is valid. Submitting...', formData);
-      setFormData({
-        email: '',
-        password: '',
-      });
-    } else {
-      console.log('Form validation failed');
-    }
-  };
+ 
+   if (validateForm()) {
+     console.log('Form is valid. Submitting...', formData);
+ 
+     console.log("Hello"); //test console log
+
+     try {
+       const response = await fetch('http://localhost:8081/login', { // will send data to the login endpoint
+         method: 'POST', //establishing it is a POST request
+         headers: {
+           'Content-Type': 'application/json', //stating the content that will be pushed will be in JSON
+         },
+         body: JSON.stringify(formData),
+       });
+ 
+
+       if (!response.ok) {
+         // Log status and response text for debugging
+         const errorText = await response.text();
+         console.error(`HTTP error! Status: ${response.status}, Text: ${errorText}`);
+         throw new Error(`Failed to submit form data: ${response.status}`);
+       }
+ 
+       const responseData = await response.json();
+       
+       // Reset the form fields after the log in page has been completed
+       setFormData({
+         email: '',
+         password: '',
+       });
+       
+       // Navigate to the success page or another route
+       navigate('/', { state: { responseData, formData } }); // Will navigate to home after a successful completiom
+ 
+     } catch (error) {
+       console.error('Error in handleSubmit:', error.message);
+     }
+   } else {
+     console.log('Form validation failed');
+   }
+ };
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
-            <h1 className="text-2xl xl:text-3xl font-extrabold">Sign up</h1>
+            <h1 className="text-2xl xl:text-3xl font-extrabold">Log In</h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
                 <button
@@ -156,14 +192,8 @@ function Login() {
                 </div>
               </form>
               <p className="mt-6 text-xs text-gray-600 text-center">
-                I agree to abide by templatana's{' '}
-                <a href="#" className="border-b border-gray-500 border-dotted">
-                  Terms of Service
-                </a>{' '}
-                and its{' '}
-                <a href="#" className="border-b border-gray-500 border-dotted">
-                  Privacy Policy
-                </a>
+                Don't have an account?
+                <Link to="/Register"><span className="text-blue-700">click here</span></Link>
               </p>
             </div>
           </div>
