@@ -8,7 +8,7 @@ const PORT = 8081;
 app.use(cors());
 app.use(express.json()); // To parse JSON bodies
 
-// Create MySQL connections for different databases
+// Create MySQL connections for both the login and user name table
 const dbCapstone = mysql.createConnection({
     host: 'database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com',
     user: 'admin',
@@ -20,6 +20,8 @@ const dbCapstone = mysql.createConnection({
     port: 3306
 });
 
+
+//Create MySQL connection for all the volunteering oppurtinities
 const dbVolunteering = mysql.createConnection({
     host: 'database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com',
     user: 'admin',
@@ -30,6 +32,13 @@ const dbVolunteering = mysql.createConnection({
     queueLimit: 0,
     port: 3306
 });
+
+
+//Create MYSQL connection for all the newsletter
+
+
+
+
 
 // Test the DB connections
 dbCapstone.connect((err) => {
@@ -62,10 +71,11 @@ app.post('/register', (req, res) => {
     });
 });
 
-// User login (CapstoneBofa DB)
+// Writing a post route to create user 
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
 
+    //writing  SQL query to check if user who is loged matches what is in the database
     const query = "SELECT * FROM users WHERE email = ? AND password = ?";
     dbCapstone.query(query, [email, password], (err, results) => {
         if (err) {
@@ -78,7 +88,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-// Welcome endpoint
+// Beginning test route to make sure that port is working
 app.get('/', (req, res) => {
     res.json('Welcome to the backend');
 });
@@ -102,6 +112,7 @@ app.get('/login', (req, res) => {
         res.json(results);
     });
 });
+
 
 // Volunteering data endpoint (for testing purposes) - Volunteering DB
 app.get('/volunteering', (req, res) => {
