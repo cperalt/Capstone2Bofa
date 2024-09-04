@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Styles/Donation.css";
 
 const DonationPage = () => {
-  const [donationAmount, setDonationAmount] = useState(0);
+  const [donationAmount, setDonationAmount] = useState("");
   const [donorInfo, setDonorInfo] = useState({
     firstName: "",
     lastName: "",
@@ -29,9 +29,7 @@ const DonationPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Donation Submitted:", donorInfo, "Amount:", donationAmount);
-
-    // Reset form fields
-    setDonationAmount(0);
+    setDonationAmount("");
     setDonorInfo({
       firstName: "",
       lastName: "",
@@ -41,11 +39,7 @@ const DonationPage = () => {
       paymentMethod: "Credit Card",
       comments: "",
     });
-
-    // Display success message
     setSuccessMessage("Thank you for your donation!");
-
-    //  clear the success message after a few seconds
     setTimeout(() => {
       setSuccessMessage("");
     }, 5000);
@@ -91,7 +85,7 @@ const DonationPage = () => {
       <form onSubmit={handleSubmit} className="donation-page-form">
         <fieldset className="donation-page-amount-options">
           <legend>Donation Amount*</legend>
-          {[35, 50, 100, 1000, 5000].map((amount) => (
+          {[10, 25, 50, 100, 250, 500, 1000, 2500, 5000].map((amount) => (
             <button
               key={amount}
               type="button"
@@ -102,16 +96,6 @@ const DonationPage = () => {
               ${amount}
             </button>
           ))}
-          <label htmlFor="other-amount" className="visually-hidden">
-            Other Amount
-          </label>
-          <input
-            id="other-amount"
-            type="number"
-            placeholder="Other"
-            value={donationAmount > 5000 ? donationAmount : ""}
-            onChange={(e) => handleDonationAmountChange(Number(e.target.value))}
-          />
         </fieldset>
 
         <fieldset className="donation-page-donor-information">
@@ -194,7 +178,6 @@ const DonationPage = () => {
             28202
           </p>
 
-          {/* Conditional rendering of credit card form */}
           {donorInfo.paymentMethod === "Credit Card" && (
             <div className="credit-card-form">
               <label htmlFor="card-number">Card Number*</label>
