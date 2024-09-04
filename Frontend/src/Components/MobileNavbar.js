@@ -42,32 +42,32 @@ const MobileNavbar = () => {
         >
           <li className="mobile-navbar-menu-item">
             <a href="/" className="mobile-navbar-menu-link">
-              Home
-            </a>
-          </li>
-          <li className="mobile-navbar-menu-item">
-            <a href="/donation" className="mobile-navbar-menu-link">
-              Donation
+              HOME
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
             <a href="/volunteer" className="mobile-navbar-menu-link">
-              Volunteer
+              VOLUNTEER
+            </a>
+          </li>
+          <li className="mobile-navbar-menu-item">
+            <a href="/donation" className="mobile-navbar-menu-link">
+              DONATION
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
             <a href="/register" className="mobile-navbar-menu-link">
-              Register
+              REGISTER
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
             <a href="/Login" className="mobile-navbar-menu-link">
-              Login
+              LOGIN
             </a>
           </li>
           <li className="mobile-navbar-menu-item">
             <a href="/contact" className="mobile-navbar-menu-link">
-              Contact
+              CONTACT
             </a>
           </li>
         </ul>
