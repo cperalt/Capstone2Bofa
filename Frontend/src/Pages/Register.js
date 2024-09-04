@@ -60,27 +60,27 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
-     //e.preventDefault();
+     e.preventDefault();
   
     if (validateForm()) {
       console.log('Form is valid. Submitting...', formData);
   
       try {
-        const response = await fetch('http://localhost:8081/register', { // Ensure this URL matches your backend
+        const response = await fetch('http://localhost:8081/Register', { // Ensure this URL matches your backend
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(formData),
         });
-  
+        
         if (!response.ok) {
           // Log status and response text for debugging
+          console.log(response);
           const errorText = await response.text();
           console.error(`HTTP error! Status: ${response.status}, Text: ${errorText}`);
           throw new Error(`Failed to submit form data: ${response.status}`);
         }
-  
         const responseData = await response.json();
         
         // Reset the form fields
@@ -92,7 +92,7 @@ function Register() {
         });
         
         // Navigate to the success page or another route
-        navigate('/login', { state: { responseData, formData } }); // Adjust the path as needed
+        navigate('/', { state: { responseData, formData } }); // this will navigate to home after successful post
   
       } catch (error) {
         console.error('Error in handleSubmit:', error.message);
