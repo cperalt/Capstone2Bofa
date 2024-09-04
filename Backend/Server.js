@@ -164,6 +164,7 @@ app.get('/', (req, res) => {
     res.json('Welcome to the backend');
 });
 
+
 // Registration endpoint (for testing purposes) - CapstoneBofa DB
 app.get("/register", (req, res) => {
   dbCapstone.query("SELECT * FROM users", (err, results) => {

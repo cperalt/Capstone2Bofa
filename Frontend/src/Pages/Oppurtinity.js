@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function Volunteers({ volunteersEndpoint }) {
+function Options({ volunteersEndpoint }) {
     const [volunteers, setVolunteers] = useState([]); // Set volunteers to empty initially
     const [filteredVolunteers, setFilteredVolunteers] = useState([]); // Set filtered volunteers to empty initially
     const [filterName, setFilterName] = useState(''); // Set filtered name to empty
@@ -142,4 +142,4 @@ function Volunteers({ volunteersEndpoint }) {
     );
 }
 
-export default Volunteers;
+export default Options;
