@@ -9,6 +9,7 @@ import Register from "./Pages/Register"; //file path is correct
 import Login from "./Pages/Logins";
 import Contact from "./Pages/ContactPage";
 import MobileNavbar from "../src/Components/MobileNavbar";
+import Admin from "./Pages/AdminDashboard"
 
 function App() {
   const [clicked, isClicked] = useState(false);
@@ -18,6 +19,7 @@ function App() {
       <MobileNavbar />
       <main>
         <Routes>
+          <Route path="/Admin" element={<Admin />} />
           <Route path="/" element={<Home />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/donation" element={<Donation />} />
