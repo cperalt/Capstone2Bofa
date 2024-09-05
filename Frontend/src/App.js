@@ -13,6 +13,7 @@ import Admin from "./Pages/AdminDashboard"
 
 function App() {
   const [clicked, isClicked] = useState(false);
+
   return (
     <Router>
       <Navbar />
@@ -32,4 +33,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;

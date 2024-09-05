@@ -28,7 +28,14 @@ const DonationPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     console.log("Donation Submitted:", donorInfo, "Amount:", donationAmount);
+
+  //establishing of the post request to send data to DB enpoint
+
+  
+
+
     setDonationAmount("");
     setDonorInfo({
       firstName: "",
@@ -39,6 +46,7 @@ const DonationPage = () => {
       paymentMethod: "Credit Card",
       comments: "",
     });
+
     setSuccessMessage("Thank you for your donation!");
     setTimeout(() => {
       setSuccessMessage("");
