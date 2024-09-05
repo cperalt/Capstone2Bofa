@@ -96,21 +96,23 @@ app.post('/register', async (req, res) => {
   console.log('form data', req.body);
 
   bcrypt.hash(password, 10, (err, hashedPassword) => {
-      if (err) {
-          console.error(err);
-          return res.status(500).send('Error hashing password');
-      }
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Error hashing password');
+    }
 
-      const query = "INSERT INTO users (first_name, last_name, email, password_hash, is_admin) VALUES (?, ?, ?, ?, false)";
-      dbCapstone.query(query, [firstName, lastName, email, hashedPassword], (err, result) => {
-          if (err) {
-              console.error(err);
-              return res.status(500).send('Error inserting data');
-          }
-          res.status(200).json(result);
-      });
+    // Insert user into the database with role set to 'admin'
+    const query = "INSERT INTO users (first_name, last_name, email, password_hash, role) VALUES (?, ?, ?, ?, 'user')";
+    dbCapstone.query(query, [firstName, lastName, email, hashedPassword], (err, result) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send('Error inserting data');
+      }
+      res.status(200).json(result);
+    });
   });
 });
+
 
 // User login
 app.post('/login', (req, res) => {
@@ -139,6 +141,7 @@ app.post('/login', (req, res) => {
           }
 
           res.status(200).json(user);
+          user.is_adim
       });
   });
 });
@@ -164,7 +167,6 @@ app.get('/', (req, res) => {
     res.json('Welcome to the backend');
 });
 
-
 // Registration endpoint (for testing purposes) - CapstoneBofa DB
 app.get("/register", (req, res) => {
   dbCapstone.query("SELECT * FROM users", (err, results) => {
@@ -186,8 +188,7 @@ app.get("/login", (req, res) => {
 });
 
 
-
-// Volunteering data endpoint (for testing purposes) - Volunteering DB GET Request to grab that data
+// Volunteering data endpoint (for testing purposes) - Volunteering DB
 app.get('/volunteering', (req, res) => {
     dbVolunteering.query('SELECT * FROM Volunteering', (err, results) => {
         if (err) {
