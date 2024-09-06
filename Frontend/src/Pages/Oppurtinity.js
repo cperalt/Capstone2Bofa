@@ -128,4 +128,4 @@ function Volunteers({ volunteersEndpoint }) {
     );
 }
 
-export default Options;
+export default Volunteers;
