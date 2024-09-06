@@ -6,9 +6,11 @@ import Home from "./Pages/HomePage";
 import Volunteer from "./Pages/VolunteerPage"; // Ensure this matches your actual file name
 import Donation from "./Pages/DonationPage";
 import Register from "./Pages/Register"; //file path is correct
+import Volunteers from "./Pages/Oppurtinity"
 import Login from "./Pages/Logins";
 import Contact from "./Pages/ContactPage";
 import MobileNavbar from "../src/Components/MobileNavbar";
+
 
 function App() {
   const [clicked, isClicked] = useState(false);
@@ -19,7 +21,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/volunteer" element={<Volunteers />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/Register" element={<Register />} />
