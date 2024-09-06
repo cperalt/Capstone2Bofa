@@ -60,6 +60,10 @@ const dbDonation  = mysql.createConnection({
 })
 
 
+//create mySQL connection for the newsletter
+
+
+
 
 // Test the DB connections for the capstoneBOFA database (user and log in tables)
 dbCapstone.connect((err) => {
@@ -199,6 +203,8 @@ app.get('/volunteering', (req, res) => {
     });
 });
 
+
+//get request for Donation endpoint
 app.get('/Donation', (req, res) => {
   dbDonation.query('SELECT * FROM Donations', (err, results) => {
     if(err){

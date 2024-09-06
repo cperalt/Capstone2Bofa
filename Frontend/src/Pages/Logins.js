@@ -82,7 +82,7 @@ function Login() {
        
        // Navigate to the success page or another route
        if(responseData.role === "admin"){
-        navigate('/', {state: {responseData, formData} });
+        navigate('/Admin', {state: {responseData, formData} });
        }
        else if(responseData.role === "user"){
         navigate('/volunteer', {state: {responseData, formData}})
