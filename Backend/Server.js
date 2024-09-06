@@ -1,10 +1,10 @@
-const mysql = require('mysql2'); // MySQL library
-const cors = require('cors'); // CORS middleware
-const express = require('express'); // Express framework
+import { createConnection } from 'mysql2'; // MySQL library
+import cors from 'cors'; // CORS middleware
+import express, { json } from 'express'; // Express framework
 
 
 const app = express();
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 
 app.use(
   cors({
@@ -15,12 +15,12 @@ app.use(
   })
 );
 
-app.use(express.json()); // To parse JSON bodies
+app.use(json()); // To parse JSON bodies
 
 
 
 // Create MySQL connections for both the login and user name table
-const dbCapstone = mysql.createConnection({
+const dbCapstone = createConnection({
   host: "database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com",
   user: "admin",
   password: "xwlsfQL76x",
@@ -33,7 +33,7 @@ const dbCapstone = mysql.createConnection({
 
 
 //Create MySQL connection for all the volunteering oppurtinities
-const dbVolunteering = mysql.createConnection({
+const dbVolunteering = createConnection({
   host: "database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com",
   user: "admin",
   password: "xwlsfQL76x",
@@ -47,7 +47,7 @@ const dbVolunteering = mysql.createConnection({
 
 //Create MYSQL connection for all the Donations
 
-const dbDonation  = mysql.createConnection({
+const dbDonation  = createConnection({
   host: 'database-1.c1wsgik4mf8z.us-east-2.rds.amazonaws.com',
   user: 'admin',
   password: 'xwlsfQL76x',
@@ -95,7 +95,7 @@ dbDonation.connect((err) => {
 
 // User registration
 app.post('/register', async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, email} = req.body;
   console.log('form data', req.body);
 
   // bcrypt.hash(password, 10, (err, hashedPassword) => {
@@ -119,7 +119,7 @@ app.post('/register', async (req, res) => {
 
 // User login
 app.post('/login', (req, res) => {
-  const { email, password } = req.body;
+  const { email} = req.body;
 
   const query = "SELECT * FROM users WHERE email = ?";
   dbCapstone.query(query, [email], (err, results) => {
