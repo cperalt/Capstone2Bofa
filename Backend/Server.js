@@ -114,7 +114,6 @@ app.post('/register', async (req, res) => {
       res.status(200).json(result);
     });
   });
-});
 
 
 // User login
