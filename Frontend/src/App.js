@@ -23,8 +23,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/Admin" element={<Admin />} />
+          <Route path="/Volunteers" element={<Volunteers/>} />
           <Route path="/" element={<Home />} />
-          <Route path="/volunteer" element={<Volunteers />} />
+          <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/donation" element={<Donation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/Register" element={<Register />} />
