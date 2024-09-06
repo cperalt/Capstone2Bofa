@@ -72,6 +72,8 @@ function Login() {
  
        const responseData = await response.json();
        
+       console.log('Response Data:', responseData); // Log to check response structure
+               
        // Reset the form fields after the log in page has been completed
        setFormData({
          email: '',
@@ -79,7 +81,12 @@ function Login() {
        });
        
        // Navigate to the success page or another route
-        navigate('/Register', {state: {responseData, formData} });
+       if(responseData.role === "admin"){
+        navigate('/Admin', {state: {responseData, formData} });
+       }
+       else if(responseData.role === "user"){
+        navigate('/volunteer', {state: {responseData, formData}})
+       }
      } catch (error) {
        console.error('Error in handleSubmit:', error.message);
      }

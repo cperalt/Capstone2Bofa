@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react"; //initialize react, useEffect and useState from react library
 import { FaSearch, FaCog } from "react-icons/fa";
+import { Chart } from "react-google-charts"; //importing chart from react googel charts to allow for creation of charts based on data
 import "../Styles/Admin.css";
-import chart  from "../2024.png"
-import circle  from "../circlegraph.png"
-import line  from "../linegraph.png"
-import john  from "../johndoe.png"
-import donation  from "../donationgraph.png"
+// import chart  from "../2024.png";
+import circle  from "../circlegraph.png";
+import line  from "../linegraph.png";
+import john  from "../johndoe.png";
+import donation  from "../donationgraph.png";
 
 // Sample Volunteer Data
 const invoices = [
@@ -17,14 +18,40 @@ const invoices = [
 ];
 
 function AdminDashboard() {
+  // State for user data
+  const [volunteers, setVolunteers] = useState([]);
+
+  // Fetch users when the component mounts
+  useEffect(() => {
+    fetchVolunteers();
+  }, []);
+
+  // Function to fetch user data from the server
+  const fetchVolunteers = () => {
+    fetch(`http://localhost:8081/login`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .then(data => {
+        setVolunteers(data); // Update state with the fetched data
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+  };
+
   return (
     <div className="adminpage">
       <div className="container">
         {/* Overview Section */}
         <div className="overview">
-            <h3>Total Volunteers</h3>
+          <h3>Total Volunteers</h3>
           <div className="total-sales">
-            <img src={chart} alt="Total Volunteers chart" className="chart"/>
+            {/* <img src={chart} alt="Total Volunteers chart" className="chart"/> */}
+            
           </div>
 
           <div className="overview-cards">
@@ -49,16 +76,17 @@ function AdminDashboard() {
           </div>
         </div>
 
-          {/* Sales by Category Section */}
-          <div className="sales-category">
-            <h3>Donations by Category</h3>
-            <img src={donation} alt="donation graph" className="donationgraph" />
-            <div className="category-details">
-            </div>
+        {/* Sales by Category Section */}
+        <div className="sales-category">
+          <h3>Donations by Category</h3>
+          <img src={donation} alt="donation graph" className="donationgraph" />
+          <div className="category-details">
+            {/* Additional details could go here */}
           </div>
+        </div>
 
         {/* Recent Invoices Section */}
-        <div className="recent-invoices">
+        {/* <div className="recent-invoices">
           <h3>Recent Volunteer Donations</h3>
           <table>
             <thead>
@@ -80,6 +108,34 @@ function AdminDashboard() {
                   <td>{invoice.date}</td>
                   <td>{invoice.cause}</td>
                   <td>{invoice.amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div> */}
+
+        {/* Volunteers Section */}
+        <div className="volunteers">
+          <h3>Volunteers List</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                {/* <th>Phone</th>
+                <th>Joined</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              {volunteers.map((volunteer, index) => (
+                <tr key={index}>
+                  <td>{volunteer.user_id}</td>
+                  <td>{volunteer.first_name}</td>
+                  <td>{volunteer.last_name}</td>
+                  <td>{volunteer.email}</td>
+                  {/* <td>{volunteer.phone}</td> */}
+                  {/* <td>{volunteer.joined}</td> */}
                 </tr>
               ))}
             </tbody>
