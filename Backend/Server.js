@@ -1,7 +1,6 @@
 const mysql = require('mysql2'); // MySQL library
 const cors = require('cors'); // CORS middleware
 const express = require('express'); // Express framework
-const bcrypt = require('bcryptjs');// installed password hashing 
 
 
 const app = express();
@@ -99,11 +98,11 @@ app.post('/register', async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   console.log('form data', req.body);
 
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send('Error hashing password');
-    }
+  // bcrypt.hash(password, 10, (err, hashedPassword) => {
+  //   if (err) {
+  //     console.error(err);
+  //     return res.status(500).send('Error hashing password');
+  //   }
 
     // Insert user into the database with role set to 'admin'
     const query = "INSERT INTO users (first_name, last_name, email, password_hash, role) VALUES (?, ?, ?, ?, 'user')";
@@ -134,19 +133,19 @@ app.post('/login', (req, res) => {
       }
 
       const user = results[0];
-      bcrypt.compare(password, user.password_hash, (err, isMatch) => {
-          if (err) {
-              console.error(err);
-              return res.status(500).send('Error comparing passwords');
-          }
-
-          if (!isMatch) {
-              return res.status(401).send('Invalid credentials');
-          }
-
+      // bcrypt.compare(password, user.password_hash, (err, isMatch) => {
+      //     if (err) {
+      //         console.error(err);
+      //         return res.status(500).send('Error comparing passwords');
+      //     }
+      //
+      //     if (!isMatch) {
+      //         return res.status(401).send('Invalid credentials');
+      //     }
+      //
+      // });
           res.status(200).json(user);
           user.is_adim
-      });
   });
 });
 
