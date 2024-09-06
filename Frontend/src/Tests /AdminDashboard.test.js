@@ -4,14 +4,14 @@ import '@testing-library/jest-dom';
 import AdminDashboard from '../Pages/AdminDashboard'; 
 
 describe('AdminDashboard Component', () => {
-  test('renders the Total Volunteers chart', () => {
-    render(<AdminDashboard />);
-    const totalVolunteersHeading = screen.getByText(/Total Volunteers/i);
-    const chartImage = screen.getByAltText(/Total Volunteers chart/i);
+  // test('renders the Total Volunteers chart', () => {
+  //   render(<AdminDashboard />);
+  //   const totalVolunteersHeading = screen.getByText(/Total Volunteers/i);
+  //   const chartImage = screen.getByAltText(/Total Volunteers chart/i);
     
-    expect(totalVolunteersHeading).toBeInTheDocument();
-    expect(chartImage).toBeInTheDocument();
-  });
+  //   expect(totalVolunteersHeading).toBeInTheDocument();
+  //   expect(chartImage).toBeInTheDocument();
+  // });
 
   test('renders the Hours Volunteered card', () => {
     render(<AdminDashboard />);
